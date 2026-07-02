@@ -1,0 +1,44 @@
+name: Veille Economique Chine (TLD Group)
+
+on:
+  schedule:
+    # Tous les jours à 5h30 UTC (13h30 Shanghai) — avant le brief GSE (6h00)
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+    # Permet le lancement manuel depuis l'onglet "Actions" de GitHub
+
+jobs:
+  run-eco-agent:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupère le code du dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Installe Python 3.11
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. Installe les dépendances
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. Lance l'agent économique
+      - name: Run China Economic Watch Agent
+        run: python china_eco_agent.py
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+
+      # 5. Sauvegarde le rapport et le fichier de debug
+      - name: Upload economic report
+        uses: actions/upload-artifact@v4
+        with:
+          name: eco-report
+          path: rapports/
+          if-no-files-found: warn
