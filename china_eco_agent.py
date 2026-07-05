@@ -153,6 +153,50 @@ KEYWORDS_ECO = [
     "长三角", "珠三角", "成渝", "京津冀",
     "江苏", "浙江", "广东", "山东", "上海",
     "制造业集群", "产业园区",
+
+    # --- GDP growth (general macro, broader than industrial output) ---
+    "国内生产总值", "GDP增速", "经济增速", "季度GDP", "增长目标",
+    "GDP growth", "quarterly GDP", "growth target", "economic growth rate",
+    "两会", "政府工作报告", "government work report",
+
+    # --- Monetary policy ---
+    "央行", "中国人民银行", "货币政策", "全面降准", "定向降准",
+    "MLF", "逆回购", "公开市场操作", "存款准备金率",
+    "PBOC", "monetary policy", "monetary easing", "reserve ratio",
+    "policy rate", "central bank China", "quantitative easing",
+
+    # --- Foreign investment / market access ---
+    "外商直接投资", "外资", "外资准入", "外资流入", "外资流出",
+    "FDI", "foreign direct investment", "foreign investment inflow",
+    "foreign investment outflow", "market access", "negative list",
+    "外商投资法", "准入负面清单",
+
+    # --- Key sectors — real estate ---
+    "房地产", "房企", "楼市", "房地产市场", "地产债",
+    "real estate", "property developer", "property market",
+    "Evergrande", "恒大", "Country Garden", "碧桂园",
+    "housing market", "property crisis",
+
+    # --- Key sectors — consumption / services ---
+    "消费", "社会消费品零售", "服务业", "内需消费",
+    "consumer spending", "retail sales", "services sector",
+    "consumption recovery",
+
+    # --- Key sectors — technology ---
+    "科技自主", "国产替代", "人工智能产业", "AI产业",
+    "technology self-sufficiency", "import substitution",
+    "artificial intelligence industry",
+
+    # --- Structural reform ---
+    "国企改革", "供给侧改革", "对外开放", "市场化改革",
+    "SOE reform", "structural reform", "supply-side reform",
+    "opening up", "market-oriented reform", "深化改革",
+
+    # --- Compliance / regulatory risk ---
+    "合规", "反垄断", "数据安全法", "网络安全法", "个人信息保护法",
+    "antitrust", "data security law", "cybersecurity law",
+    "compliance risk", "regulatory crackdown", "反垄断调查",
+    "sanctions compliance", "export control compliance", "监管",
 ]
 
 # =============================================================================
@@ -233,6 +277,20 @@ SOURCES = [
         "type": "scrape_generic",
         "selector": "h2 a, h3 a, .news-title a, a",
         "base_url": "https://steelguru.com",
+    },
+    {
+        "nom": "Financial Times — China",
+        "url": "https://www.ft.com/china",
+        "type": "scrape_generic",
+        "selector": "a[data-trackable='heading-link'], .o-teaser__heading a, h3 a, a",
+        "base_url": "https://www.ft.com",
+    },
+    {
+        "nom": "Trading Economics — China",
+        "url": "https://tradingeconomics.com/china/indicators",
+        "type": "scrape_generic",
+        "selector": "table a, #ctl00_ContentPlaceHolder1_ctl00_UpdatePanel1 a, a",
+        "base_url": "https://tradingeconomics.com",
     },
 ]
 
@@ -471,6 +529,31 @@ TAVILY_QUERIES = [
     # --- Industrial policy / electrification ---
     ("中国新能源 工业电动化 碳中和 补贴政策 2026", "zh"),
     ("China NEV industrial electrification policy subsidy 2026", "en"),
+
+    # --- GDP growth & government targets ---
+    ("中国GDP 经济增速 最新数据 2026", "zh"),
+    ("China GDP growth rate latest quarter 2026", "en"),
+    ("政府工作报告 经济增长目标 2026", "zh"),
+
+    # --- Monetary policy ---
+    ("中国人民银行 货币政策 降准 降息 2026", "zh"),
+    ("PBOC monetary policy interest rate decision 2026", "en"),
+
+    # --- Foreign investment / market access ---
+    ("中国外商直接投资 外资流入 最新数据 2026", "zh"),
+    ("China foreign direct investment FDI inflow 2026", "en"),
+
+    # --- Real estate sector (major macro risk factor) ---
+    ("中国房地产市场 房企 债务 最新 2026", "zh"),
+    ("China property market developer debt crisis 2026", "en"),
+
+    # --- Structural reform ---
+    ("中国国企改革 供给侧改革 对外开放 2026", "zh"),
+    ("China SOE reform opening up market access 2026", "en"),
+
+    # --- Compliance / regulatory risk for foreign manufacturers ---
+    ("中国合规 数据安全法 外资企业监管 2026", "zh"),
+    ("China regulatory compliance foreign company data security 2026", "en"),
 ]
 
 
@@ -682,6 +765,30 @@ POLICY & REGULATION:
 - Trade tariffs on steel/aluminium → import cost impact for non-Chinese competitors
 - NEV subsidies → battery cost reduction → electric GSE economics improve
 
+MACRO GROWTH & MONETARY POLICY:
+- GDP growth above/below official target → overall business confidence and capex cycle signal
+- PBOC rate cuts or RRR cuts → cheaper financing system-wide → supports both TLD's own funding and customer capex
+- Monetary tightening → liquidity squeeze → risk of delayed customer payments and capex
+
+FOREIGN INVESTMENT & MARKET ACCESS:
+- FDI inflow trends → signal of broader foreign manufacturer confidence in China, proxy for TLD's own China risk premium
+- Negative list liberalization / market access reform → opportunities for JV or ownership restructuring
+- FDI outflow acceleration → potential competitive tightening as foreign peers retrench
+
+KEY SECTORS (real estate, consumption, technology):
+- Real estate market distress → indirect drag on regional government infrastructure spending and airport capex
+- Consumption/retail sales trends → proxy for domestic air travel demand → GSE utilization
+- Technology self-sufficiency drive (import substitution) → potential opportunity or risk for TLD's supply chain sourcing
+
+STRUCTURAL REFORM:
+- SOE reform affecting airport operators or airlines → procurement process changes, consolidation risk/opportunity
+- Opening-up measures → easier market access, potential for expanded TLD footprint or new partnerships
+
+COMPLIANCE & REGULATORY RISK:
+- Data security / cybersecurity law enforcement → operational compliance burden for TLD's China entities and IT systems
+- Antitrust or regulatory crackdowns in adjacent sectors → signal of broader regulatory tightening for foreign-invested manufacturers
+- Export control or sanctions compliance developments → direct risk to TLD's cross-border operations and supply chain
+
 IMPACT LEVELS:
 - CRITICAL: Act within 48h — major threshold breach, urgent opportunity/threat
 - IMPORTANT: Act this week — significant shift requiring management attention
@@ -695,6 +802,10 @@ KEY THRESHOLDS TO FLAG AS CRITICAL:
 - Air traffic YoY drop > 5%
 - CNY/EUR move > 3% in 30 days
 - Major infrastructure investment announcement > RMB 50bn
+- GDP growth miss vs official target by more than 0.5 point
+- PBOC policy rate or RRR change (any move)
+- Major property developer default or bailout announcement
+- New data security / cybersecurity enforcement action against foreign-invested firms
 
 OUTPUT FORMAT — use EXACTLY this structure:
 
@@ -702,7 +813,7 @@ For each meaningful signal:
 ===SIGNAL_START===
 SIGNAL_ID: [number]
 IMPACT: [CRITICAL | IMPORTANT | WATCH | INFO]
-INDICATOR: [PMI | STEEL | ALUMINIUM | LITHIUM | COPPER | ENERGY | INFRASTRUCTURE | AIR_TRAFFIC | FX | TRADE | POLICY | OTHER]
+INDICATOR: [PMI | GDP | MONETARY | STEEL | ALUMINIUM | LITHIUM | COPPER | ENERGY | INFRASTRUCTURE | AIR_TRAFFIC | FX | TRADE | POLICY | FDI | REAL_ESTATE | REFORM | COMPLIANCE | OTHER]
 HEADLINE: [One sharp sentence — max 15 words]
 READING: [2-3 sentences: what the data shows and what is driving it]
 MANUFACTURING_IMPACT: [2-3 sentences: direct impact on TLD's production costs, margins, or supply chain in China]
@@ -923,6 +1034,8 @@ IMPACT_CONFIG = {
 
 INDICATOR_ICONS = {
     "PMI":            "📊",
+    "GDP":            "📈",
+    "MONETARY":       "🏦",
     "STEEL":          "🔩",
     "ALUMINIUM":      "⚙️",
     "LITHIUM":        "🔋",
@@ -933,6 +1046,10 @@ INDICATOR_ICONS = {
     "FX":             "💱",
     "TRADE":          "🌐",
     "POLICY":         "📋",
+    "FDI":            "🌍",
+    "REAL_ESTATE":    "🏘️",
+    "REFORM":         "🔧",
+    "COMPLIANCE":     "⚖️",
     "OTHER":          "📌",
 }
 
@@ -1250,7 +1367,7 @@ body{{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;
 <div class="masthead">
   <div class="masthead-eyebrow">TLD Group · Alvest · CFO Intelligence</div>
   <div class="masthead-title">China Economic Watch</div>
-  <div class="masthead-subtitle">Manufacturing margins · GSE demand · Raw materials · Infrastructure</div>
+  <div class="masthead-subtitle">Manufacturing margins · GSE demand · Macro &amp; monetary policy · FDI &amp; reform · Compliance</div>
   <div class="masthead-meta">
     <div class="meta-item"><span>Date</span><strong>{now_full}</strong></div>
     <div class="meta-item"><span>Generated</span><strong>{now_time}</strong></div>
@@ -1292,7 +1409,7 @@ body{{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;
     <div class="sources-panel-label">Monitored sources (scraped + Tavily)</div>
     <ul>
       {sources_list}
-      <li>Tavily Search (NBS, Caixin ZH, Mysteel, SMM, NDRC, CAAC, Wind)</li>
+      <li>Tavily Search (NBS, Caixin ZH, Mysteel, SMM, NDRC, CAAC, PBOC, MOFCOM, Wind)</li>
     </ul>
   </div>
 
