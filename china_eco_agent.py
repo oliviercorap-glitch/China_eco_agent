@@ -339,6 +339,28 @@ def collecter_tous_articles():
 # =============================================================================
 #  FILTERING
 # =============================================================================
+#
+#  Short, all-caps ASCII acronyms (BRI, CNY, GDP, HRC, LPR, NEV, PMI, RMB...)
+#  are prone to false-positive substring matches inside unrelated words. For
+#  those, require word boundaries. Longer terms, terms with spaces, and
+#  Chinese keywords keep simple substring matching.
+
+def _est_acronyme_ambigu(kw):
+    return kw.isascii() and kw.isalpha() and kw.isupper() and len(kw) <= 4
+
+
+def _compiler_motifs_keywords():
+    motifs = []
+    for kw in KEYWORDS_ECO:
+        if _est_acronyme_ambigu(kw):
+            motifs.append((kw, re.compile(rf"\b{re.escape(kw)}\b", re.IGNORECASE)))
+        else:
+            motifs.append((kw, None))
+    return motifs
+
+
+KEYWORD_PATTERNS = _compiler_motifs_keywords()
+
 
 def filtrer_pertinents(articles, vus):
     nouveaux = []
@@ -346,7 +368,10 @@ def filtrer_pertinents(articles, vus):
         if a["id"] in vus:
             continue
         texte = (a["titre"] + " " + a.get("desc", "")).lower()
-        matched = [kw for kw in KEYWORDS_ECO if kw.lower() in texte]
+        matched = [
+            kw for kw, motif in KEYWORD_PATTERNS
+            if (motif.search(texte) if motif else kw.lower() in texte)
+        ]
         if matched:
             log.info(
                 f"  KEPT [{a['source']}] {a['titre'][:70]} "
@@ -741,16 +766,41 @@ def construire_prompt_user(articles):
     return "\n".join(lines)
 
 
+# Minimum number of directly-scraped articles guaranteed a slot in the
+# DeepSeek batch, so Tavily/eco-brief content never crowds them out entirely.
+MIN_SCRAPED_QUOTA = 25
+
+
+def select_balanced_batch(articles, max_total=DEEPSEEK_MAX_ARTICLES, min_scraped=MIN_SCRAPED_QUOTA):
+    scraped = [a for a in articles if a["source"] not in ("Tavily Search", "DeepSeek Economic Brief")]
+    other = [a for a in articles if a["source"] in ("Tavily Search", "DeepSeek Economic Brief")]
+
+    reserved_scraped = scraped[:min_scraped]
+    remaining_slots = max_total - len(reserved_scraped)
+    batch = reserved_scraped + other[:remaining_slots]
+
+    if len(batch) < max_total:
+        extra = scraped[len(reserved_scraped):len(reserved_scraped) + (max_total - len(batch))]
+        batch += extra
+
+    log.info(
+        f"Balanced batch: {sum(1 for a in batch if a['source'] not in ('Tavily Search','DeepSeek Economic Brief'))} scraped, "
+        f"{sum(1 for a in batch if a['source'] in ('Tavily Search','DeepSeek Economic Brief'))} Tavily/eco-brief "
+        f"(of {len(articles)} total relevant articles)"
+    )
+    return batch[:max_total]
+
+
 def analyser_avec_deepseek(articles):
     if not articles:
         log.info("No articles to analyze.")
-        return ""
+        return "", None
 
     api_key = os.environ.get("DEEPSEEK_API_KEY")
     if not api_key:
         raise ValueError("DEEPSEEK_API_KEY environment variable not set.")
 
-    batch = articles[:DEEPSEEK_MAX_ARTICLES]
+    batch = select_balanced_batch(articles, DEEPSEEK_MAX_ARTICLES, MIN_SCRAPED_QUOTA)
     if len(articles) > DEEPSEEK_MAX_ARTICLES:
         log.warning(
             f"Capped input at {DEEPSEEK_MAX_ARTICLES} articles "
@@ -771,11 +821,12 @@ def analyser_avec_deepseek(articles):
             temperature=0.2,
         )
         raw = response.choices[0].message.content
-        log.info(f"DeepSeek response: {len(raw)} chars")
-        return raw
+        finish_reason = response.choices[0].finish_reason
+        log.info(f"DeepSeek response: {len(raw)} chars, finish_reason={finish_reason}")
+        return raw, finish_reason
     except Exception as e:
         log.error(f"DeepSeek API error: {e}")
-        return ""
+        return "", None
 
 
 # =============================================================================
@@ -909,6 +960,28 @@ def trouver_article(sig, articles):
     return best_article if best_score >= 1 else None
 
 
+def _render_info_item(sig, articles):
+    """Render one collapsed INFO-level item, WITH a clickable source link
+    when a matching article can be found — background items previously had
+    no link at all, unlike the full CRITICAL/IMPORTANT/WATCH cards."""
+    article = trouver_article(sig, articles)
+    headline_esc = (
+        sig["headline"]
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
+    if article:
+        return (
+            '<li style="font-size:13px;color:#64748b;padding:3px 0;">'
+            f'<a href="{article.get("lien","#")}" target="_blank" rel="noopener" '
+            f'style="color:#2563eb;text-decoration:none;">{headline_esc}</a>'
+            f' <span style="color:#94a3b8;">— {article["source"]}</span>'
+            "</li>"
+        )
+    return f'<li style="font-size:13px;color:#64748b;padding:3px 0;">{headline_esc}</li>'
+
+
 def render_signal_card(sig, articles):
     cfg  = IMPACT_CONFIG.get(sig["impact"], IMPACT_CONFIG["INFO"])
     icon = INDICATOR_ICONS.get(sig.get("indicator", "OTHER"), "📌")
@@ -992,8 +1065,7 @@ def generer_rapport(articles, signals, summary, truncated=False):
             signals_html += render_signal_card(sig, articles)
         if background:
             info_items = "".join(
-                f'<li style="font-size:13px;color:#64748b;padding:3px 0;">'
-                f'{sig["headline"]}</li>'
+                _render_info_item(sig, articles)
                 for sig in background
             )
             signals_html += f"""
@@ -1035,8 +1107,10 @@ def generer_rapport(articles, signals, summary, truncated=False):
         trunc_banner = """
 <div style="background:#fef9c3;border:1px solid #fde047;border-radius:8px;
             padding:12px 16px;margin-bottom:24px;font-size:13px;color:#713f12;">
-  <strong>Warning:</strong> DeepSeek output may have been truncated.
-  Some signals could be missing.
+  <strong>Warning:</strong> DeepSeek confirmed its response was cut off
+  (finish_reason=length) — some signals or the summary block are likely
+  missing. Reduce DEEPSEEK_MAX_ARTICLES; deepseek-chat's output ceiling is a
+  hard limit, so raising max_tokens further will not help.
 </div>"""
 
     return f"""<!DOCTYPE html>
@@ -1238,12 +1312,17 @@ body{{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;
 # =============================================================================
 
 def sauvegarder_rapport(rapport_html):
-    dossier = Path("rapports")
+    # "reports" : c'est le dossier que weekly_digest_agent.py scanne sur
+    # tous les repos. Nom de fichier avec date ISO pour le filtrage
+    # "7 derniers jours" du digest, + une copie reports/latest.html en repli.
+    dossier = Path("reports")
     dossier.mkdir(exist_ok=True, parents=True)
-    fichier = dossier / f"eco_watch_{datetime.now().strftime('%Y%m%d_%H%M')}.html"
+    date_str = datetime.now().strftime("%Y-%m-%d")
+    fichier = dossier / f"eco_watch_report_{date_str}.html"
     with open(fichier, "w", encoding="utf-8") as f:
         f.write(rapport_html)
-    log.info(f"Report saved: {fichier.absolute()}")
+    (dossier / "latest.html").write_text(rapport_html, encoding="utf-8")
+    log.info(f"Report saved: {fichier.absolute()} (and reports/latest.html)")
     return fichier
 
 
@@ -1300,24 +1379,44 @@ def executer_agent():
             articles_pertinents = enrichir_articles(articles_pertinents)
 
         # 7. Analyze with DeepSeek
-        raw_analyse = (
+        raw_analyse, finish_reason = (
             analyser_avec_deepseek(articles_pertinents)
             if articles_pertinents
-            else ""
+            else ("", None)
         )
 
         # 8. Save raw output for debugging
-        Path("rapports").mkdir(exist_ok=True, parents=True)
-        Path("rapports/debug_raw_eco.txt").write_text(
+        Path("reports").mkdir(exist_ok=True, parents=True)
+        Path("reports/debug_raw_eco.txt").write_text(
             raw_analyse or "", encoding="utf-8"
         )
-        log.info("Raw DeepSeek output saved to rapports/debug_raw_eco.txt")
+        log.info("Raw DeepSeek output saved to reports/debug_raw_eco.txt")
 
         # 9. Truncation detection
+        # api_truncated (finish_reason=="length") is authoritative and the
+        # only signal that drives the report's alarming banner. format_mismatch
+        # can happen even in short responses from an isolated formatting slip
+        # on one item — logged, but not treated with the same severity.
         n_starts  = raw_analyse.count("===SIGNAL_START===")
         n_ends    = raw_analyse.count("===SIGNAL_END===")
         has_sum   = "===SUMMARY_START===" in raw_analyse
-        truncated = (n_starts != n_ends) or (n_starts > 0 and not has_sum)
+        api_truncated   = (finish_reason == "length")
+        format_mismatch = (n_starts != n_ends) or (n_starts > 0 and not has_sum)
+
+        if api_truncated:
+            log.warning(
+                "TRUNCATION CONFIRMED BY API: finish_reason=length. "
+                "Reduce DEEPSEEK_MAX_ARTICLES (currently %d).", DEEPSEEK_MAX_ARTICLES,
+            )
+        elif format_mismatch:
+            log.warning(
+                f"Formatting mismatch (NOT a real truncation — response was "
+                f"only {len(raw_analyse)} chars): {n_starts} SIGNAL_START vs "
+                f"{n_ends} SIGNAL_END, summary_present={has_sum}. See "
+                f"reports/debug_raw_eco.txt to find the exact spot."
+            )
+
+        truncated = api_truncated  # only the authoritative signal drives the report banner
 
         # 10. Parse
         signals, summary = parser_analyse(raw_analyse)
