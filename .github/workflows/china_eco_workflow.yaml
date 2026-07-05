@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
     # Permet le lancement manuel depuis l'onglet "Actions" de GitHub
 
+permissions:
+  contents: write   # AJOUTÉ : nécessaire pour committer le rapport vers le repo
+
 jobs:
   run-eco-agent:
     runs-on: ubuntu-latest
@@ -36,9 +39,26 @@ jobs:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
 
       # 5. Sauvegarde le rapport et le fichier de debug
+      #    CORRIGÉ : "rapports/" -> "reports/" (le script écrit maintenant
+      #    dans ce dossier, avec un nom de fichier daté + latest.html)
       - name: Upload economic report
         uses: actions/upload-artifact@v4
         with:
           name: eco-report
-          path: rapports/
+          path: reports/
           if-no-files-found: warn
+
+      # 6. AJOUTÉ : commit le rapport dans le repo, pour que
+      #    weekly_digest_agent.py puisse le lire via l'API GitHub. Sans
+      #    cette étape, le rapport n'existe que sur le runner éphémère.
+      - name: Commit report back to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add seen_eco_articles.json reports/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: China economic watch report [skip ci]"
+            git push
+          fi
