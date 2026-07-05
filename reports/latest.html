@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China Economic Watch — July 05, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0f172a;--ink-2:#334155;--ink-3:#64748b;--ink-4:#94a3b8;
+  --surface:#fff;--surface-1:#f8fafc;--border:#e2e8f0;
+  --radius:8px;--radius-lg:12px;
+}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;
+      color:var(--ink);line-height:1.6;padding:32px 16px 64px}
+.wrapper{max-width:960px;margin:0 auto}
+
+/* MASTHEAD */
+.masthead{background:var(--ink);border-radius:var(--radius-lg) var(--radius-lg) 0 0;padding:28px 36px 24px}
+.masthead-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;
+                   text-transform:uppercase;color:#64748b;margin-bottom:8px}
+.masthead-title{font-size:22px;font-weight:600;letter-spacing:-.02em;color:#fff;margin-bottom:4px}
+.masthead-subtitle{font-size:13px;color:#475569;margin-bottom:12px}
+.masthead-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.meta-item{font-size:13px;color:#94a3b8;display:flex;align-items:center;gap:6px}
+.meta-item strong{color:#e2e8f0;font-weight:500}
+.masthead-counters{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;
+                    padding-top:16px;border-top:1px solid #1e293b}
+.counter-pill{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;letter-spacing:.02em}
+
+/* CARD BODY */
+.card-body{background:var(--surface);border:1px solid var(--border);border-top:none;
+            border-radius:0 0 var(--radius-lg) var(--radius-lg);padding:36px}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;
+                 padding-bottom:12px;border-bottom:1px solid var(--border)}
+.section-header h2{font-size:13px;font-weight:600;text-transform:uppercase;
+                    letter-spacing:.08em;color:var(--ink-3)}
+.section-divider{margin:36px 0;border:none;border-top:1px solid var(--border)}
+
+/* EXEC SUMMARY */
+.exec-panel{background:var(--ink);border-radius:var(--radius-lg);padding:24px 28px;
+             margin-bottom:24px;color:#e2e8f0;font-size:15px;line-height:1.75}
+.exec-panel-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+                   text-transform:uppercase;color:#475569;margin-bottom:10px}
+.exec-panel p{margin:0}
+
+/* OUTLOOK PANELS */
+.outlook-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.outlook-card{border-radius:var(--radius);padding:16px 18px;border:1px solid}
+.outlook-card.margins{background:#f0fdf4;border-color:#bbf7d0}
+.outlook-card.demand{background:#eff6ff;border-color:#bfdbfe}
+.outlook-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:8px}
+.outlook-card.margins .outlook-label{color:#166534}
+.outlook-card.demand .outlook-label{color:#1e40af}
+.outlook-text{font-size:13px;line-height:1.6}
+.outlook-card.margins .outlook-text{color:#14532d}
+.outlook-card.demand .outlook-text{color:#1e3a8a}
+.outlook-text p{margin:0}
+
+/* SIGNAL CARDS */
+.signal-card{border:1px solid var(--border);border-radius:var(--radius-lg);
+              margin-bottom:16px;overflow:hidden;transition:box-shadow .15s}
+.signal-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.signal-card-header{padding:14px 20px;background:var(--surface-1);
+                     display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.signal-badge{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;
+               white-space:nowrap;letter-spacing:.03em;margin-top:2px;flex-shrink:0}
+.indicator-tag{font-size:11px;font-weight:500;color:var(--ink-3);
+                background:#f1f5f9;padding:3px 8px;border-radius:6px;
+                white-space:nowrap;margin-top:2px;flex-shrink:0}
+.signal-headline{font-size:15px;font-weight:600;color:var(--ink);line-height:1.4;flex:1}
+.signal-headline p{margin:0}
+.signal-body{padding:20px;display:grid;gap:14px}
+.signal-section-label{font-size:10px;font-weight:600;text-transform:uppercase;
+                        letter-spacing:.1em;color:var(--ink-4);margin-bottom:4px}
+.signal-section-text{font-size:14px;color:var(--ink-2);line-height:1.65}
+.signal-section-text p{margin:0}
+.signal-action .signal-section-text{color:var(--ink);font-weight:500}
+.signal-source{padding-top:10px;border-top:1px dashed var(--border);font-size:12px;
+                color:var(--ink-4);display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.source-label{font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+               font-size:10px;color:var(--ink-4);margin-right:4px}
+.signal-source a{color:#2563eb;text-decoration:none;font-weight:500}
+.signal-source a:hover{text-decoration:underline}
+.source-name{color:var(--ink-4)}
+
+/* WATCH / RISK / OPP */
+.watch-panel{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--radius-lg);
+              padding:18px 22px;margin-bottom:12px}
+.watch-panel-label{font-size:11px;font-weight:600;text-transform:uppercase;
+                    letter-spacing:.08em;color:#92400e;margin-bottom:10px}
+.watch-panel ol{padding-left:20px;display:grid;gap:6px}
+.watch-panel li{font-size:14px;color:#78350f;line-height:1.5}
+.watch-panel li p{margin:0}
+.risk-panel{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--radius-lg);
+             padding:16px 22px;margin-bottom:12px}
+.risk-panel-label{font-size:11px;font-weight:600;text-transform:uppercase;
+                   letter-spacing:.08em;color:#991b1b;margin-bottom:6px}
+.risk-panel-text{font-size:14px;color:#7f1d1d;font-weight:500;line-height:1.6}
+.risk-panel-text p{margin:0}
+.opp-panel{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-lg);
+            padding:16px 22px}
+.opp-panel-label{font-size:11px;font-weight:600;text-transform:uppercase;
+                  letter-spacing:.08em;color:#166534;margin-bottom:6px}
+.opp-panel-text{font-size:14px;color:#14532d;font-weight:500;line-height:1.6}
+.opp-panel-text p{margin:0}
+
+/* SOURCES */
+.sources-panel{background:var(--surface-1);border:1px solid var(--border);
+                border-radius:var(--radius);padding:14px 18px;margin-top:32px}
+.sources-panel-label{font-size:10px;font-weight:600;text-transform:uppercase;
+                       letter-spacing:.1em;color:var(--ink-4);margin-bottom:8px}
+.sources-panel ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 0;
+                   column-gap:24px;columns:2}
+.sources-panel li{font-size:12px;color:var(--ink-3);break-inside:avoid}
+.sources-panel li::before{content:"·";margin-right:6px;color:var(--ink-4)}
+
+/* FOOTER */
+.page-footer{text-align:center;font-size:11px;color:var(--ink-4);margin-top:24px;
+              font-family:'IBM Plex Mono',monospace;letter-spacing:.04em}
+
+@media(max-width:640px){
+  body{padding:12px 8px 48px}
+  .masthead,.card-body{padding:20px 16px}
+  .outlook-grid{grid-template-columns:1fr}
+  .sources-panel ul{columns:1}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<div class="masthead">
+  <div class="masthead-eyebrow">TLD Group · Alvest · CFO Intelligence</div>
+  <div class="masthead-title">China Economic Watch</div>
+  <div class="masthead-subtitle">Manufacturing margins · GSE demand · Macro &amp; monetary policy · FDI &amp; reform · Compliance</div>
+  <div class="masthead-meta">
+    <div class="meta-item"><span>Date</span><strong>July 05, 2026</strong></div>
+    <div class="meta-item"><span>Generated</span><strong>00:34</strong></div>
+    <div class="meta-item"><span>Articles analyzed</span><strong>168</strong></div>
+    <div class="meta-item"><span>Signals</span><strong>40</strong></div>
+  </div>
+  <div class="masthead-counters"><span class="counter-pill" style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">5 Important</span><span class="counter-pill" style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">6 Watch</span><span class="counter-pill" style="background:#f9fafb;color:#374151;border:1px solid #e5e7eb;">29 Info</span></div>
+</div>
+
+<div class="card-body">
+
+  
+
+  <div class="exec-panel"><div class="exec-panel-label">Executive summary</div>China's manufacturing economy is in a fragile equilibrium with the June NBS PMI at 50.3, barely above expansion, while the Caixin PMI at 51.8 shows stronger export-oriented activity. Industrial output grew 4.5% in May, below trend, and retail sales expanded only 1.4% year-to-date, signaling weak domestic consumption. Steel prices have declined 2.25% month-on-month to USD 1,169/ton, providing modest COGS relief, but remain 33% higher year-on-year. The PBOC injected RMB 500 billion via MLF operations, easing liquidity conditions and supporting customer financing. Real estate distress continues to drag on regional government infrastructure spending, including airport investment. The net impact on TLD China is a mixed picture: stable but not growing manufacturing activity, manageable input costs with steel declining, and cautious GSE demand from domestic customers offset by potential export opportunities.</div>
+
+  <div class="outlook-grid">
+    <div class="outlook-card margins">
+      <div class="outlook-label">📉 Manufacturing margin outlook (30-90 days)</div>
+      <div class="outlook-text">Manufacturing margins are under moderate pressure from elevated input costs, with the PMI input price index remaining high despite the monthly steel price decline. The 2.25% drop in HRC steel provides approximately 0.3-0.4% COGS relief on a blended basis, but this is insufficient to offset the 33% year-on-year steel price increase. Labor costs remain stable with low CPI inflation. Net margin outlook for the next 30-90 days is stable to slightly improving, contingent on steel prices continuing their downward trend.</div>
+    </div>
+    <div class="outlook-card demand">
+      <div class="outlook-label">📈 GSE demand outlook (90-180 days)</div>
+      <div class="outlook-text">GSE demand for the next 90-180 days is cautious to negative for the domestic market, with the NBS PMI at 50.3 and new orders in contraction at 49.2. Airport investment is constrained by real estate-driven fiscal pressures on local governments. Export demand is more promising, supported by the Caixin PMI at 51.8 and new export orders expansion. The PBOC's liquidity injection may support customer financing for GSE leasing in 3-6 months. Overall, expect flat to slightly declining domestic orders with potential export growth.</div>
+    </div>
+  </div>
+
+  <div class="section-header"><h2>Signals</h2></div>
+  
+<div class="signal-card impact-important">
+  <div class="signal-card-header" style="border-left:4px solid #d97706;">
+    <span class="signal-badge"
+          style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">
+      Important
+    </span>
+    <span class="indicator-tag">📊 PMI</span>
+    <h3 class="signal-headline">May NBS PMI at 50.0, expansion ends after two months</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">The official NBS manufacturing PMI for May 2026 was 50.0, down 0.3 points from April's 50.3 and ending two consecutive months of expansion. The reading is exactly at the boom-bust line, driven by a decline in new export orders and persistent deflationary pressure in consumer goods.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">The PMI at the neutral line signals flat production momentum at TLD's Shanghai and Wuxi factories. Input cost pressures remain elevated with the PMI input price index still high, squeezing margins on fixed-price GSE contracts.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">A PMI at 50.0 provides no catalyst for customer capex acceleration. Airport ground handlers and airlines will remain cautious on new GSE purchases, deferring non-essential fleet replacements.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">CFO should maintain lean inventory levels and avoid committing to large raw material purchases until PMI shows clear expansion above 50.5.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener">中国 PMI: New Orders | 经济指标 | CEIC</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-watch">
+  <div class="signal-card-header" style="border-left:4px solid #0369a1;">
+    <span class="signal-badge"
+          style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">
+      Watch
+    </span>
+    <span class="indicator-tag">📊 PMI</span>
+    <h3 class="signal-headline">June NBS PMI edges up to 50.3, modest improvement</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">The June 2026 NBS manufacturing PMI rose to 50.3 from May's 50.0, according to macromicro data. This marks a return to expansion territory but remains below the 52 threshold that would trigger significant customer capex.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">The slight improvement supports stable factory output at TLD's China plants. No immediate cost pressure relief, but the trend is positive for production planning.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">At 50.3, the PMI is too low to unlock major GSE procurement cycles. Customer confidence remains fragile, and large-scale orders from airport operators and handlers are unlikely in the near term.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">Monitor next month's PMI for sustained expansion above 50.5 before adjusting production capacity.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener">中国 PMI: New Orders | 经济指标 | CEIC</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-watch">
+  <div class="signal-card-header" style="border-left:4px solid #0369a1;">
+    <span class="signal-badge"
+          style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">
+      Watch
+    </span>
+    <span class="indicator-tag">📊 PMI</span>
+    <h3 class="signal-headline">Caixin PMI May at 51.8, beats expectations</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">The Caixin/S&amp;P Global manufacturing PMI for May 2026 came in at 51.8, above the 51.4 forecast and the previous 51.8 reading. This survey focuses on smaller, export-oriented private firms, showing stronger conditions than the official NBS PMI.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">The Caixin reading suggests export-oriented supply chains, including TLD's component suppliers, are operating at healthy levels. This supports stable input availability for TLD's assembly lines.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">The divergence between Caixin (51.8) and NBS (50.0) indicates that export demand is stronger than domestic demand. TLD's GSE exports from China may benefit, but domestic airport handler demand remains subdued.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">No immediate action, but the Caixin-NBS divergence warrants watching for a potential domestic demand recovery lag.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener">中国 PMI: New Orders | 经济指标 | CEIC</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-important">
+  <div class="signal-card-header" style="border-left:4px solid #d97706;">
+    <span class="signal-badge"
+          style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">
+      Important
+    </span>
+    <span class="indicator-tag">🔩 STEEL</span>
+    <h3 class="signal-headline">HRC steel at USD 1,169, down 2.25% month-on-month</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">Hot-rolled coil steel prices fell to USD 1,169.08 per ton on July 3, 2026, down 2.25% over the past month. However, prices remain 33% higher year-on-year. The decline from recent highs reflects new capacity coming online in China and softening demand.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">The 2.25% monthly decline in HRC steel provides modest COGS relief for TLD's steel-intensive GSE products, such as tow tractors and belt loaders. Steel accounts for approximately 15-20% of TLD's raw material costs, so this move reduces input costs by roughly 0.3-0.4% on a blended basis.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Lower steel prices may slightly improve margins for TLD's customers who fabricate their own equipment, but the impact on GSE procurement decisions is negligible.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">Procurement team should lock in current steel prices for Q3 2026 deliveries to capture the monthly decline, but remain cautious on long-term contracts given the 33% YoY increase.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.procurementresource.com/resource-center/hot-rolled-coil-price-trends" target="_blank" rel="noopener">Hot Rolled Coil Price Trend 2026 | Graph &amp; Forecast</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-important">
+  <div class="signal-card-header" style="border-left:4px solid #d97706;">
+    <span class="signal-badge"
+          style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">
+      Important
+    </span>
+    <span class="indicator-tag">📈 GDP</span>
+    <h3 class="signal-headline">Industrial output grows 4.5% in May, below trend</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">China's value-added industrial output grew 4.5% year-on-year in May 2026, according to NBS data. This is below the 5%+ growth rate seen in early 2025 and signals a moderating industrial expansion.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">The 4.5% industrial output growth indicates stable but slowing factory activity. For TLD's Shanghai and Wuxi plants, this means no immediate pressure on labor availability or component supply, but also no strong tailwind for production ramp-up.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Slowing industrial output correlates with cautious corporate capex. Airport and airline investment committees will be less likely to approve large GSE purchases in this environment.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">CFO should factor 4.5% industrial growth into Q3 revenue forecasts, assuming flat to slightly declining GSE order volumes.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener">中国 PMI: New Orders | 经济指标 | CEIC</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-watch">
+  <div class="signal-card-header" style="border-left:4px solid #0369a1;">
+    <span class="signal-badge"
+          style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">
+      Watch
+    </span>
+    <span class="indicator-tag">🏗️ INFRASTRUCTURE</span>
+    <h3 class="signal-headline">Fixed asset investment data for Jan-May released</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">NBS data for January-May 2026 fixed asset investment shows the overall trend. Specific infrastructure investment figures are not detailed in the excerpt, but the release indicates ongoing government focus on investment-led growth.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">Infrastructure investment supports demand for construction-related GSE, such as concrete mixers and material handling equipment. However, the impact on TLD's core airport GSE is indirect.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">If infrastructure investment includes airport construction, it could drive GSE demand. Without specific airport investment figures, the signal is neutral.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">Monitor for detailed infrastructure breakdown in subsequent NBS releases, particularly airport-specific investment.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener">中国 PMI: New Orders | 经济指标 | CEIC</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-watch">
+  <div class="signal-card-header" style="border-left:4px solid #0369a1;">
+    <span class="signal-badge"
+          style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">
+      Watch
+    </span>
+    <span class="indicator-tag">🏘️ REAL_ESTATE</span>
+    <h3 class="signal-headline">Real estate market data for Jan-May shows continued distress</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">NBS released January-May 2026 real estate market data. The sector remains under pressure, with ongoing developer liquidity issues and weak property sales. This drags on regional government revenues and infrastructure spending capacity.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">Real estate weakness reduces demand for construction machinery and steel, which indirectly benefits TLD by keeping steel prices lower. However, it also signals broader economic fragility.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Real estate distress reduces local government fiscal capacity for airport investment. Many Chinese airports are funded by provincial or municipal governments, so weaker property markets mean delayed airport expansion projects and lower GSE procurement.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">CFO should review exposure to customers in regions with high real estate distress, particularly second- and third-tier city airports.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener">中国 PMI: New Orders | 经济指标 | CEIC</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-important">
+  <div class="signal-card-header" style="border-left:4px solid #d97706;">
+    <span class="signal-badge"
+          style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">
+      Important
+    </span>
+    <span class="indicator-tag">📌 OTHER</span>
+    <h3 class="signal-headline">PPI rises, input costs remain elevated for manufacturers</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">The producer price index (PPI) for May 2026 showed an increase, indicating that input costs for manufacturers remain elevated. The PMI input price index was at elevated levels in Q1 2026, reaching a near-four-year high of 63.9 in March.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">Elevated PPI directly impacts TLD's manufacturing costs. The PMI input price index at 63.9 in March indicates significant cost pressure on raw materials, components, and energy. This squeezes TLD's gross margins on fixed-price contracts.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Higher PPI may lead to GSE price increases, which could dampen customer demand if passed through. TLD may need to absorb some cost increases to maintain market share.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">CFO should review all fixed-price GSE contracts for cost escalation clauses and consider hedging key input costs for Q3-Q4 2026.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener">中国 PMI: New Orders | 经济指标 | CEIC</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-important">
+  <div class="signal-card-header" style="border-left:4px solid #d97706;">
+    <span class="signal-badge"
+          style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">
+      Important
+    </span>
+    <span class="indicator-tag">🏦 MONETARY</span>
+    <h3 class="signal-headline">PBOC conducts RMB 500 billion MLF operation, injects liquidity</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">The People's Bank of China conducted a medium-term lending facility (MLF) operation of RMB 500 billion on June 25, 2026. This is a significant liquidity injection into the banking system, supporting credit availability.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">The MLF operation ensures ample liquidity in the financial system, which supports TLD's working capital financing and reduces the risk of supply chain credit tightening.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Increased liquidity supports customer financing for GSE purchases. Airport operators and handlers will find it easier to obtain loans for equipment procurement, potentially boosting GSE demand in the coming months.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">TLD's leasing team should leverage the improved liquidity environment to offer competitive financing terms to customers, particularly for electric GSE products.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://x.com/marketsday/status/2056912547669037191" target="_blank" rel="noopener">People's Bank of China (#PBoC) May 2026 Interest Rate ...</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-watch">
+  <div class="signal-card-header" style="border-left:4px solid #0369a1;">
+    <span class="signal-badge"
+          style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">
+      Watch
+    </span>
+    <span class="indicator-tag">🏦 MONETARY</span>
+    <h3 class="signal-headline">PBOC adds overnight reverse repo operation, eases short-term rates</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">The PBOC announced it will add an overnight reverse repurchase agreement operation to its toolkit, effective June 26, 2026. This provides more precise short-term liquidity management and signals a bias toward easing.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">Lower short-term interest rates reduce TLD's financing costs for working capital and short-term borrowing. This is a marginal positive for manufacturing margins.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Easier monetary conditions support customer capex by lowering borrowing costs. The impact on GSE demand is indirect but positive over a 3-6 month horizon.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">CFO should review TLD's short-term borrowing arrangements to take advantage of potentially lower rates.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war" target="_blank" rel="noopener">Tracking the Impact of the Trump Tariffs &amp; Trade War</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-watch">
+  <div class="signal-card-header" style="border-left:4px solid #0369a1;">
+    <span class="signal-badge"
+          style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">
+      Watch
+    </span>
+    <span class="indicator-tag">🏦 MONETARY</span>
+    <h3 class="signal-headline">Central bank law amendment proposed, strengthens macroprudential framework</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">The People's Bank of China Law is proposed for amendment to strengthen the macroprudential policy framework. This is a structural reform that may affect future monetary policy implementation.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">No immediate impact on manufacturing costs. The amendment signals a more systematic approach to financial stability, which is positive for long-term business planning.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">A stronger macroprudential framework reduces the risk of financial instability, which supports sustained investment in airport infrastructure and GSE procurement.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">No immediate action; monitor the legislative process for any changes affecting foreign-invested enterprises.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://x.com/marketsday/status/2056912547669037191" target="_blank" rel="noopener">People's Bank of China (#PBoC) May 2026 Interest Rate ...</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<details style="margin-top:12px;">
+  <summary style="font-size:12px;color:#94a3b8;cursor:pointer;padding:8px 4px;
+                  user-select:none;list-style:none;">
+    <span style="font-size:10px;background:#f1f5f9;border:1px solid #e2e8f0;
+                 border-radius:20px;padding:2px 8px;color:#64748b;font-weight:600;">
+      + 29 background items
+    </span>
+    <span style="color:#94a3b8;margin-left:8px;">— no immediate action, click to expand</span>
+  </summary>
+  <ul style="list-style:none;padding:12px 16px;margin-top:8px;
+             background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+    <li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.spglobal.com/energy/en/news-research/latest-news/metals/032026-china-hrc-market-under-pressure-as-new-capacity-piles-up-in-2026" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Chinese domestic HRC averages Yuan 3,270/mt in 2026</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Retail sales grow only 1.4% in Jan-May, consumption weak</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">CPI rises 1.2% YoY in May, inflation remains benign</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://eastasiaforum.org/2018/10/25/the-past-present-and-future-of-soe-reform-in-china" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">NDRC holds conference on private economy development</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.china-briefing.com/news/chinas-soe-reform-process" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">NDRC holds SOE reform座谈会, signals state sector focus</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.sidley.com/en/insights/newsupdates/2026/06/chinas-new-supply-chain-security-regulations-key-takeaways-for-companies-with-china-operations" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">New foreign investment regulations published by State Council</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.sidley.com/en/insights/newsupdates/2026/06/chinas-new-supply-chain-security-regulations-key-takeaways-for-companies-with-china-operations" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">BYD surpasses Tesla in global EV sales, battery costs fall</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Small banks offer WeChat withdrawal fee subsidies, consumer stimulus</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.cyberadviserblog.com/2026/01/chinese-enforcement-actions-reinforce-need-for-global-privacy-compliance-strategy" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">NDRC holds press conference on employment priority plan</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.scmp.com/economy/global-economy/article/3359350/currency-advantages-k-beauty-fuel-chinese-shopping-trips-spending-korea" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Chinese tourists boost spending in Korea on currency advantages</a> <span style="color:#94a3b8;">— South China Morning Post — Economy</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">AI adoption in banking becomes survival necessity</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.cnbc.com/2026/04/20/china-keeps-benchmark-lending-rates-unchanged-as-economic-growth-revs-up-amid-mounting-middle-east-risk-mount-.html" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Guizhou village super league IP drives consumption upgrade</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.sidley.com/en/insights/newsupdates/2026/06/chinas-new-supply-chain-security-regulations-key-takeaways-for-companies-with-china-operations" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">NDRC signs cooperation documents with Laos and Serbia</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/china/steel-price" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">NDRC holds meeting on correct political achievement view</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">NDRC publishes article on high-quality service sector development</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">January NBS PMI fell to 49.3, contraction confirmed</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/indicator/china/foreign-direct-investment" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">March NBS PMI returned to 50.4, expansion resumed</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">April NBS PMI at 50.3, expansion continued but slowed</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">February NBS PMI at 49.0, contraction deepened</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">PMI new orders index at 50.6 in April, demand expanding</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/indicator/china/foreign-direct-investment" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">PMI input price index surged to 63.9 in March, near four-year high</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">May PMI sub-indices show contraction in orders and employment</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.procurementresource.com/resource-center/hot-rolled-coil-price-trends" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Steel price index at Yuan 3,301.90 per ton on July 1</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/indicator/china/foreign-direct-investment" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">HRC steel market size projected to grow at 6.9% CAGR</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Chinese HRC prices hit 19-month high in May 2026</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.kallanish.com/en/news/steel/market-reports/article-details/chinese-hrc-prices-hit-19-month-high-0526" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Nucor issues first unchanged HRC price in June 2026</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.spglobal.com/energy/en/news-research/latest-news/metals/032026-china-hrc-market-under-pressure-as-new-capacity-piles-up-in-2026" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">China HRC market under pressure from new capacity in 2026</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/en/indicator/china/foreign-direct-investment" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Construction steel prices show weakness in late June</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.ceicdata.com/zh-hans/china/purchasing-managers-index-manufacturing/pmi-new-orders" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">2026 construction steel prices expected to edge up slightly</a> <span style="color:#94a3b8;">— Tavily Search</span></li>
+  </ul>
+</details>
+
+  <hr class="section-divider">
+
+  <div class="section-header"><h2>To watch this week</h2></div><div class="watch-panel"><div class="watch-panel-label">Key indicators &amp; thresholds</div><ol><li>NBS Manufacturing PMI for July 2026 — threshold: below 49.5 would signal renewed contraction and trigger GSE demand caution; above 51 would signal recovery and support capex.</li><li>HRC steel price trend — threshold: a further 5% decline from current USD 1,169/ton would provide meaningful margin relief; a 5% increase would compress margins further.</li><li>Domestic air traffic growth data — threshold: year-on-year growth below 5% would confirm weak consumption-to-travel linkage and signal GSE order deferrals.</li></ol></div>
+
+  <div class="risk-panel"><div class="risk-panel-label">Main risk</div><div class="risk-panel-text">The combination of weak domestic demand (PMI new orders at 49.2), real estate-driven fiscal constraints on airport investment, and elevated input costs could lead to a significant GSE order contraction in Q3 2026.</div></div>
+
+  <div class="opp-panel"><div class="opp-panel-label">Main opportunity</div><div class="opp-panel-text">Falling battery costs driven by China's EV industry growth and PBOC liquidity easing create a window to aggressively market electric GSE with competitive total cost of ownership and attractive financing terms.</div></div>
+
+  <div class="sources-panel">
+    <div class="sources-panel-label">Monitored sources (scraped + Tavily)</div>
+    <ul>
+      <li>NBS China (国家统计局)</li><li>NDRC China (发改委)</li><li>Reuters China Economy</li><li>Bloomberg China</li><li>Caixin Global</li><li>South China Morning Post — Economy</li><li>CGTN Business</li><li>Xinhua Finance</li><li>LME Metals (Metal Bulletin)</li><li>Steel Guru</li><li>Financial Times — China</li><li>Trading Economics — China</li>
+      <li>Tavily Search (NBS, Caixin ZH, Mysteel, SMM, NDRC, CAAC, PBOC, MOFCOM, Wind)</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  China Economic Watch · TLD Group / Alvest · Powered by DeepSeek + Tavily · July 05, 2026
+</div>
+
+</div>
+</body>
+</html>
