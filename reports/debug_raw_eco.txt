@@ -1,20 +1,21 @@
 ===SIGNAL_START===
 SIGNAL_ID: 1
-IMPACT: INFO
-INDICATOR: OTHER
-HEADLINE: NDRC article link returns 404 error
-READING: The NDRC article on AI conference outcomes is inaccessible due to a 404 error. No economic data or policy signals can be extracted from this source.
-MANUFACTURING_IMPACT: No actionable manufacturing impact can be derived from this broken link.
-DEMAND_IMPACT: No actionable demand impact can be derived from this broken link.
-ACTION: No action required. Monitor for a corrected or alternative NDRC release on AI-related industrial policy.
+IMPACT: IMPORTANT
+INDICATOR: AIR_TRAFFIC
+HEADLINE: Airbus sells 55 aircraft to Chinese airlines
+READING: Air China and its subsidiary Shenzhen Airlines have ordered 55 Airbus aircraft, including 15 A350-900 widebodies and 40 narrowbody jets. This is a significant fleet expansion order from two major Chinese carriers, signaling confidence in future air travel demand in China.
+MANUFACTURING_IMPACT: No direct impact on TLD's manufacturing costs or supply chain in China. The order does not affect steel, aluminium, lithium, or energy prices relevant to TLD's factory operations in Shanghai and Wuxi.
+DEMAND_IMPACT: This fleet order creates a strong positive signal for GSE demand in the 12-18 month horizon. Each new aircraft entering service typically requires 3-5 GSE units for ground handling. The 55 aircraft order implies potential demand for 165 to 275 additional GSE units across Air China and Shenzhen Airlines' hub airports, including Shanghai Pudong and Shenzhen Baoan. This supports TLD's order pipeline for tow tractors, belt loaders, and passenger stairs.
+ACTION: TLD's APAC sales team should proactively engage Air China and Shenzhen Airlines' ground handling divisions to position TLD's electric GSE portfolio for the upcoming fleet induction cycle. Target initial contact within 30 days.
 ===SIGNAL_END===
+
 ===SUMMARY_START===
-EXECUTIVE_SUMMARY: Today's single data source, an NDRC article on the World AI Conference, returned a 404 error and provided no economic signals. No PMI, commodity price, air traffic, FX, or policy data is available for analysis. TLD Group's China operations face no new actionable intelligence from this input. The overall economic picture remains unchanged from the last available data set. Priority actions are limited to monitoring for corrected releases.
-MARGIN_OUTLOOK: No new margin signals today. Manufacturing cost outlook remains based on prior commodity and energy data.
-DEMAND_OUTLOOK: No new demand signals today. GSE demand outlook remains based on prior PMI, air traffic, and infrastructure data.
-WATCH_1: NDRC corrected release on AI conference outcomes or related industrial policy announcements.
-WATCH_2: Next official PMI release for July 2026 (threshold: <48 or >52).
-WATCH_3: Steel and aluminium price moves in the next 30 days (threshold: >10% move).
-MAIN_RISK: No new risk identified from today's data; reliance on stale economic indicators may delay response to emerging trends.
-MAIN_OPPORTUNITY: No new opportunity identified; continued monitoring of AI-related industrial policy could reveal manufacturing efficiency or electrification incentives.
+EXECUTIVE_SUMMARY: The sole signal today is a major aircraft order from Air China and Shenzhen Airlines for 55 Airbus jets, including 15 widebody A350s. This is a strong positive indicator for future GSE demand in China, as new aircraft require ground support equipment for operations. The order implies a potential pipeline of 165-275 additional GSE units over the next 12-18 months. No cost-side signals were present in today's data, so manufacturing margins remain stable. The overall economic picture is neutral to positive for TLD China, with demand-side opportunity emerging from airline fleet expansion. Priority action is to initiate commercial engagement with the two airlines' ground handling teams.
+MARGIN_OUTLOOK: No cost-side signals today. Manufacturing margins for TLD's China operations remain stable in the near term, with no changes in steel, aluminium, lithium, or energy prices reported.
+DEMAND_OUTLOOK: GSE demand outlook is positive for the next 90-180 days, driven by the Air China and Shenzhen Airlines fleet order. This creates a concrete procurement pipeline for ground handling equipment at major Chinese airports.
+WATCH_1: PMI manufacturing index for July 2026 — threshold: below 48 or above 52 would signal a shift in customer capex cycle
+WATCH_2: Steel price movement in China — threshold: 10% move in 30 days would impact TLD's COGS
+WATCH_3: CNY/EUR exchange rate — threshold: 3% move in 30 days would affect TLD's export competitiveness from China
+MAIN_RISK: No immediate risk identified from today's data; the primary risk remains a potential slowdown in Chinese air traffic growth that could delay the GSE demand follow-through from this aircraft order.
+MAIN_OPPORTUNITY: The 55-aircraft order from Air China and Shenzhen Airlines creates a concrete 12-18 month GSE demand pipeline of 165-275 units, providing a strong commercial opportunity for TLD's electric GSE portfolio.
 ===SUMMARY_END===
