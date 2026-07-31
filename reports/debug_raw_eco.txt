@@ -2,19 +2,20 @@
 SIGNAL_ID: 1
 IMPACT: INFO
 INDICATOR: OTHER
-HEADLINE: No actionable economic signal for TLD operations
-READING: This article covers a provincial agricultural insurance technology platform for pig farming in Guangdong. It has no connection to manufacturing economics, GSE demand, financial markets, or trade policy relevant to TLD Group.
-MANUFACTURING_IMPACT: No impact on TLD's production costs, margins, or supply chain in China.
-DEMAND_IMPACT: No impact on GSE demand from airports, airlines, or handlers.
-ACTION: No action required. Skip this article.
+HEADLINE: NDRC briefing notice published but content unavailable due to 404 error.
+READING: The NDRC's scheduled semi-annual economic briefing notice is inaccessible, returning an HTTP 404 error. No substantive economic data or policy signals can be extracted from this source.
+MANUFACTURING_IMPACT: No actionable data on input costs, energy prices, or supply chain conditions for TLD's Shanghai and Wuxi plants.
+DEMAND_IMPACT: No information on infrastructure investment, airport construction, or GSE procurement signals.
+ACTION: Disregard this source; monitor NDRC website for corrected publication or alternative official statements this week.
 ===SIGNAL_END===
+
 ===SUMMARY_START===
-EXECUTIVE_SUMMARY: Today's single article covers a provincial agricultural insurance technology platform in Guangdong with zero relevance to TLD Group's manufacturing operations or GSE market. No economic signals were generated. The overall economic picture for TLD China remains unchanged from the prior assessment. No threshold breaches or actionable intelligence emerged. Management should continue monitoring standard indicators for the next scheduled update.
-MARGIN_OUTLOOK: No new data to revise margin outlook. Manufacturing margins remain subject to previously identified steel, aluminium, and lithium price trends.
-DEMAND_OUTLOOK: No new data to revise demand outlook. GSE demand remains driven by previously tracked PMI, air traffic, and infrastructure signals.
-WATCH_1: China Caixin Manufacturing PMI for July 2026 — threshold: below 48 or above 52 for first time in 3+ months
-WATCH_2: Steel price movement — threshold: more than 10% change in 30 days
-WATCH_3: CNY/EUR exchange rate — threshold: more than 3% move in 30 days
-MAIN_RISK: No new risk identified from today's data; previously identified risks remain in effect.
-MAIN_OPPORTUNITY: No new opportunity identified from today's data; previously identified opportunities remain in effect.
+EXECUTIVE_SUMMARY: Today's sole source, an NDRC briefing notice, is inaccessible due to a 404 error, yielding zero actionable economic intelligence. No PMI, price, FX, or policy data points were available for analysis. TLD Group's China operations face no new signals requiring management attention. The economic picture remains unchanged from prior assessments, with no threshold breaches or emerging trends identified. Priority action is to seek alternative official sources for the NDRC's semi-annual economic review. Net impact on TLD China is neutral for today.
+MARGIN_OUTLOOK: Manufacturing margin outlook is unchanged, with no new data on steel, aluminium, lithium, or energy costs. Monitor commodity markets independently for any moves exceeding 10% in steel or 20% in lithium over the next 30 days.
+DEMAND_OUTLOOK: GSE demand outlook remains stable, with no new signals on airport capex, air traffic, or PMI. Continue tracking PMI for a breach above 52 or below 48 as the primary demand trigger.
+WATCH_1: China official manufacturing PMI for July 2026, due in the coming days; flag if below 48 or above 52.
+WATCH_2: Steel and aluminium price indices; flag any 10% move in 30 days.
+WATCH_3: CNY/EUR exchange rate; flag any 3% move in 30 days.
+MAIN_RISK: A sudden deterioration in China's manufacturing PMI below 48, signaling customer capex deferral and GSE order cancellations.
+MAIN_OPPORTUNITY: A PMI reading above 52, unlocking customer capex and accelerating GSE procurement across APAC.
 ===SUMMARY_END===
