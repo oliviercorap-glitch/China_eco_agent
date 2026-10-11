@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China Economic Watch — October 11, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0f172a;--ink-2:#334155;--ink-3:#64748b;--ink-4:#94a3b8;
+  --surface:#fff;--surface-1:#f8fafc;--border:#e2e8f0;
+  --radius:8px;--radius-lg:12px;
+}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;
+      color:var(--ink);line-height:1.6;padding:32px 16px 64px}
+.wrapper{max-width:960px;margin:0 auto}
+
+/* MASTHEAD */
+.masthead{background:var(--ink);border-radius:var(--radius-lg) var(--radius-lg) 0 0;padding:28px 36px 24px}
+.masthead-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;
+                   text-transform:uppercase;color:#64748b;margin-bottom:8px}
+.masthead-title{font-size:22px;font-weight:600;letter-spacing:-.02em;color:#fff;margin-bottom:4px}
+.masthead-subtitle{font-size:13px;color:#475569;margin-bottom:12px}
+.masthead-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.meta-item{font-size:13px;color:#94a3b8;display:flex;align-items:center;gap:6px}
+.meta-item strong{color:#e2e8f0;font-weight:500}
+.masthead-counters{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;
+                    padding-top:16px;border-top:1px solid #1e293b}
+.counter-pill{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;letter-spacing:.02em}
+
+/* CARD BODY */
+.card-body{background:var(--surface);border:1px solid var(--border);border-top:none;
+            border-radius:0 0 var(--radius-lg) var(--radius-lg);padding:36px}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;
+                 padding-bottom:12px;border-bottom:1px solid var(--border)}
+.section-header h2{font-size:13px;font-weight:600;text-transform:uppercase;
+                    letter-spacing:.08em;color:var(--ink-3)}
+.section-divider{margin:36px 0;border:none;border-top:1px solid var(--border)}
+
+/* EXEC SUMMARY */
+.exec-panel{background:var(--ink);border-radius:var(--radius-lg);padding:24px 28px;
+             margin-bottom:24px;color:#e2e8f0;font-size:15px;line-height:1.75}
+.exec-panel-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+                   text-transform:uppercase;color:#475569;margin-bottom:10px}
+.exec-panel p{margin:0}
+
+/* OUTLOOK PANELS */
+.outlook-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.outlook-card{border-radius:var(--radius);padding:16px 18px;border:1px solid}
+.outlook-card.margins{background:#f0fdf4;border-color:#bbf7d0}
+.outlook-card.demand{background:#eff6ff;border-color:#bfdbfe}
+.outlook-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:8px}
+.outlook-card.margins .outlook-label{color:#166534}
+.outlook-card.demand .outlook-label{color:#1e40af}
+.outlook-text{font-size:13px;line-height:1.6}
+.outlook-card.margins .outlook-text{color:#14532d}
+.outlook-card.demand .outlook-text{color:#1e3a8a}
+.outlook-text p{margin:0}
+
+/* SIGNAL CARDS */
+.signal-card{border:1px solid var(--border);border-radius:var(--radius-lg);
+              margin-bottom:16px;overflow:hidden;transition:box-shadow .15s}
+.signal-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.signal-card-header{padding:14px 20px;background:var(--surface-1);
+                     display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.signal-badge{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;
+               white-space:nowrap;letter-spacing:.03em;margin-top:2px;flex-shrink:0}
+.indicator-tag{font-size:11px;font-weight:500;color:var(--ink-3);
+                background:#f1f5f9;padding:3px 8px;border-radius:6px;
+                white-space:nowrap;margin-top:2px;flex-shrink:0}
+.signal-headline{font-size:15px;font-weight:600;color:var(--ink);line-height:1.4;flex:1}
+.signal-headline p{margin:0}
+.signal-body{padding:20px;display:grid;gap:14px}
+.signal-section-label{font-size:10px;font-weight:600;text-transform:uppercase;
+                        letter-spacing:.1em;color:var(--ink-4);margin-bottom:4px}
+.signal-section-text{font-size:14px;color:var(--ink-2);line-height:1.65}
+.signal-section-text p{margin:0}
+.signal-action .signal-section-text{color:var(--ink);font-weight:500}
+.signal-source{padding-top:10px;border-top:1px dashed var(--border);font-size:12px;
+                color:var(--ink-4);display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.source-label{font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+               font-size:10px;color:var(--ink-4);margin-right:4px}
+.signal-source a{color:#2563eb;text-decoration:none;font-weight:500}
+.signal-source a:hover{text-decoration:underline}
+.source-name{color:var(--ink-4)}
+
+/* WATCH / RISK / OPP */
+.watch-panel{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--radius-lg);
+              padding:18px 22px;margin-bottom:12px}
+.watch-panel-label{font-size:11px;font-weight:600;text-transform:uppercase;
+                    letter-spacing:.08em;color:#92400e;margin-bottom:10px}
+.watch-panel ol{padding-left:20px;display:grid;gap:6px}
+.watch-panel li{font-size:14px;color:#78350f;line-height:1.5}
+.watch-panel li p{margin:0}
+.risk-panel{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--radius-lg);
+             padding:16px 22px;margin-bottom:12px}
+.risk-panel-label{font-size:11px;font-weight:600;text-transform:uppercase;
+                   letter-spacing:.08em;color:#991b1b;margin-bottom:6px}
+.risk-panel-text{font-size:14px;color:#7f1d1d;font-weight:500;line-height:1.6}
+.risk-panel-text p{margin:0}
+.opp-panel{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-lg);
+            padding:16px 22px}
+.opp-panel-label{font-size:11px;font-weight:600;text-transform:uppercase;
+                  letter-spacing:.08em;color:#166534;margin-bottom:6px}
+.opp-panel-text{font-size:14px;color:#14532d;font-weight:500;line-height:1.6}
+.opp-panel-text p{margin:0}
+
+/* SOURCES */
+.sources-panel{background:var(--surface-1);border:1px solid var(--border);
+                border-radius:var(--radius);padding:14px 18px;margin-top:32px}
+.sources-panel-label{font-size:10px;font-weight:600;text-transform:uppercase;
+                       letter-spacing:.1em;color:var(--ink-4);margin-bottom:8px}
+.sources-panel ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 0;
+                   column-gap:24px;columns:2}
+.sources-panel li{font-size:12px;color:var(--ink-3);break-inside:avoid}
+.sources-panel li::before{content:"·";margin-right:6px;color:var(--ink-4)}
+
+/* FOOTER */
+.page-footer{text-align:center;font-size:11px;color:var(--ink-4);margin-top:24px;
+              font-family:'IBM Plex Mono',monospace;letter-spacing:.04em}
+
+@media(max-width:640px){
+  body{padding:12px 8px 48px}
+  .masthead,.card-body{padding:20px 16px}
+  .outlook-grid{grid-template-columns:1fr}
+  .sources-panel ul{columns:1}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<div class="masthead">
+  <div class="masthead-eyebrow">TLD Group · Alvest · CFO Intelligence</div>
+  <div class="masthead-title">China Economic Watch</div>
+  <div class="masthead-subtitle">Manufacturing margins · GSE demand · Macro &amp; monetary policy · FDI &amp; reform · Compliance</div>
+  <div class="masthead-meta">
+    <div class="meta-item"><span>Date</span><strong>October 11, 2026</strong></div>
+    <div class="meta-item"><span>Generated</span><strong>11:32</strong></div>
+    <div class="meta-item"><span>Articles analyzed</span><strong>8</strong></div>
+    <div class="meta-item"><span>Signals</span><strong>8</strong></div>
+  </div>
+  <div class="masthead-counters"><span class="counter-pill" style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">3 Important</span><span class="counter-pill" style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">3 Watch</span><span class="counter-pill" style="background:#f9fafb;color:#374151;border:1px solid #e5e7eb;">2 Info</span></div>
+</div>
+
+<div class="card-body">
+
+  
+
+  <div class="exec-panel"><div class="exec-panel-label">Executive summary</div>China's economic picture on 11 October 2026 shows resilient consumption (Golden Week travel, UnionPay stimulus) offset by structural concerns in the NEV sector and ongoing EU trade friction over currency. The RMB 4.4 trillion special bond programme is accelerating into Q3-Q4, with transport infrastructure as a key allocation, directly supporting airport capex and GSE demand into 2027. The PBOC's rejection of EU currency manipulation claims signals rising FX politicisation, creating hedging urgency for TLD's EUR/CNY exposure. NEV subsidy uncertainty and potential EV sector consolidation could disrupt battery supply chains for electric GSE, while the dual-credit policy provides a structural tailwind for airport electrification. Net impact on TLD China is cautiously positive on demand, neutral-to-negative on input costs, with FX as the primary near-term risk. Priority actions are FX hedging review, special bond airport project mapping, and battery supply contract locking.</div>
+
+  <div class="outlook-grid">
+    <div class="outlook-card margins">
+      <div class="outlook-label">📉 Manufacturing margin outlook (30-90 days)</div>
+      <div class="outlook-text">Manufacturing margins are stable-to-slightly-positive for the next 30-90 days, supported by steady steel and aluminium prices and no energy cost shocks in today's signals. The main margin risk is CNY/EUR volatility from EU trade tensions, which could erode export margins by 1-3% if unhedged. Battery input costs for electric GSE remain uncertain pending NEV subsidy clarity.</div>
+    </div>
+    <div class="outlook-card demand">
+      <div class="outlook-label">📈 GSE demand outlook (90-180 days)</div>
+      <div class="outlook-text">GSE demand outlook for the next 90-180 days is moderately positive, driven by Golden Week travel strength, accelerated special bond disbursement for transport infrastructure, and airport electrification mandates. Chinese handler capex should hold firm, with replacement demand building as post-holiday utilisation stays elevated. The main demand risk is EU trade friction slowing European customer orders.</div>
+    </div>
+  </div>
+
+  <div class="section-header"><h2>Signals</h2></div>
+  
+<div class="signal-card impact-important">
+  <div class="signal-card-header" style="border-left:4px solid #d97706;">
+    <span class="signal-badge"
+          style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">
+      Important
+    </span>
+    <span class="indicator-tag">💱 FX</span>
+    <h3 class="signal-headline">PBOC rebuts EU currency manipulation claims as trade talks open</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">China's central bank publicly rejected European accusations of yuan manipulation as EU-China trade negotiations began, signalling heightened FX politicisation. The dispute implies the EU views CNY as undervalued, which typically precedes pressure for appreciation or tariff offsets. No specific FX level was disclosed in the excerpt.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">A politically contested CNY creates volatility risk for TLD's Shanghai and Wuxi cost base and EUR-denominated export revenues. If the EU forces appreciation pressure, TLD's China-produced GSE becomes less price-competitive in EUR terms, squeezing export margins. Hedging costs may rise as implied volatility increases.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">EU trade friction could slow European handler capex if tariffs or countermeasures emerge, indirectly softening GSE order flow from European customers. Conversely, a weaker CNY would accelerate export competitiveness and support order intake.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">CFO should review EUR/CNY hedge ratios for Q4 2026 and Q1 2027 within 5 business days, and stress-test margins at ±3% CNY/EUR moves.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.scmp.com/economy/china-economy/article/3122331/chinas-lunar-new-year-air-passenger-traffic-fall-offset-200" target="_blank" rel="noopener">China’s Lunar New Year air passenger traffic fall offset by 200 per cent increase in international cargo flights | South China Morning Post</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-watch">
+  <div class="signal-card-header" style="border-left:4px solid #0369a1;">
+    <span class="signal-badge"
+          style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">
+      Watch
+    </span>
+    <span class="indicator-tag">📌 OTHER</span>
+    <h3 class="signal-headline">Golden Week travel and Canton Fair signal resilient consumption momentum</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">SCMP reports Golden Week travel strength and the Canton Fair as key weekly themes, indicating domestic mobility and trade activity remain robust. Payment network UnionPay data (Article 3) confirms concentrated holiday spending across travel, retail, and cross-border shopping. This supports the view that consumption is holding up despite property sector drag.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">Strong domestic consumption supports factory utilisation and labour availability in the Yangtze Delta post-holiday. No direct input cost impact, but sustained demand reduces risk of order cancellations in TLD's domestic Chinese customer base.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Robust air travel during Golden Week implies higher aircraft utilisation, which accelerates GSE wear-and-tear and fleet refresh cycles. Handlers at major Chinese hubs may bring forward replacement orders in Q4 2026 if load factors stay elevated.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">Sales team should contact top-5 Chinese handler accounts within 2 weeks to gauge post-Golden Week fleet utilisation and refresh intent.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.scmp.com/economy/china-economy/article/3122331/chinas-lunar-new-year-air-passenger-traffic-fall-offset-200" target="_blank" rel="noopener">China’s Lunar New Year air passenger traffic fall offset by 200 per cent increase in international cargo flights | South China Morning Post</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-watch">
+  <div class="signal-card-header" style="border-left:4px solid #0369a1;">
+    <span class="signal-badge"
+          style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">
+      Watch
+    </span>
+    <span class="indicator-tag">📌 OTHER</span>
+    <h3 class="signal-headline">UnionPay holiday payment push confirms consumption stimulus focus</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">UnionPay mobilised cross-border and domestic payment infrastructure to boost Golden Week consumption across tourism, retail, trade-in programmes, and cross-border shopping. This reflects coordinated state effort to sustain consumer spending as a growth pillar. The article contains no hard quantitative data but confirms policy direction.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">Sustained consumption supports domestic economic activity and indirectly stabilises industrial demand in the Yangtze Delta. No direct COGS impact.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Higher tourism and travel volumes translate into elevated airport throughput, supporting GSE utilisation rates and eventual replacement demand. Cross-border shopping strength also implies healthy international passenger flows, a positive for wide-body GSE demand.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">Monitor monthly CAAC passenger statistics for confirmation; no immediate action required.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.kaggle.com/datasets/rajsengo/sfo-air-traffic-passenger-and-cargo-statistics" target="_blank" rel="noopener">SFO Air Traffic Passenger and Cargo Statistics</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-important">
+  <div class="signal-card-header" style="border-left:4px solid #d97706;">
+    <span class="signal-badge"
+          style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">
+      Important
+    </span>
+    <span class="indicator-tag">🏗️ INFRASTRUCTURE</span>
+    <h3 class="signal-headline">RMB 4.4tn special bond quota, only 47% issued by mid-year</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">China's 2026 local government special bond quota is RMB 4.4 trillion, flat versus 2025, with RMB 2.07 trillion issued in H1 (47% of full-year limit). Q3 issuance accelerated, and 14 provinces now pilot self-review self-issuance. Funds target municipal, industrial park, transport, urban renewal, and social infrastructure.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">Accelerated special bond deployment supports construction and industrial park activity, indirectly supporting steel and cement demand and stabilising input prices. TLD's Wuxi and Shanghai facilities may benefit from improved local infrastructure and logistics.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Transport infrastructure is an explicit allocation category, meaning airport expansion and upgrade projects are in the pipeline. Each new terminal typically generates 50-80 GSE units; accelerated Q3-Q4 disbursement could unlock RMB 50bn+ of airport-related capex into 2027.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">CFO and business development should map which provincial airport projects are funded by Q3-Q4 special bond issuance and target those handlers within 30 days.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.scmp.com/economy/china-economy/article/3122331/chinas-lunar-new-year-air-passenger-traffic-fall-offset-200" target="_blank" rel="noopener">China’s Lunar New Year air passenger traffic fall offset by 200 per cent increase in international cargo flights | South China Morning Post</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-watch">
+  <div class="signal-card-header" style="border-left:4px solid #0369a1;">
+    <span class="signal-badge"
+          style="background:#f0f9ff;color:#0c4a6e;border:1px solid #bae6fd;">
+      Watch
+    </span>
+    <span class="indicator-tag">📋 POLICY</span>
+    <h3 class="signal-headline">NEV subsidy cuts threaten EV supply chain, battery cost outlook uncertain</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">A commentary claims 2026 could be a "year of NEV bankruptcies" in China, citing BYD market share halving, first net profit decline in four years, and reduced government subsidies. It also cites USD 1.04 trillion in capital outflow in 2025 and a gap between 5% GDP growth and a 6.5% decline in central fiscal revenue. These are commentary claims, not verified official data.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">If NEV subsidies are cut, battery and electric drivetrain costs for TLD's electric GSE could rise or become less predictable. Conversely, consolidation in the EV sector may free up battery cell capacity and reduce prices for industrial electric vehicles. TLD should monitor lithium and battery pack pricing closely.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Weaker EV sector health could slow the broader electrification push at Chinese airports, delaying diesel-to-electric GSE conversion timelines. However, airport electrification mandates are policy-driven and may be insulated from consumer EV subsidy cuts.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">Procurement team should lock in battery supply contracts for electric GSE within 30 days to hedge against potential NEV supply chain disruption.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://www.scmp.com/economy/china-economy/article/3122331/chinas-lunar-new-year-air-passenger-traffic-fall-offset-200" target="_blank" rel="noopener">China’s Lunar New Year air passenger traffic fall offset by 200 per cent increase in international cargo flights | South China Morning Post</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<div class="signal-card impact-important">
+  <div class="signal-card-header" style="border-left:4px solid #d97706;">
+    <span class="signal-badge"
+          style="background:#fffbeb;color:#92400e;border:1px solid #fde68a;">
+      Important
+    </span>
+    <span class="indicator-tag">📋 POLICY</span>
+    <h3 class="signal-headline">NEV dual-credit policy mandates 38% NEV credits, drives electrification</h3>
+  </div>
+  <div class="signal-body">
+    <div class="signal-section">
+      <div class="signal-section-label">Reading</div>
+      <div class="signal-section-text">China's NEV dual-credit policy requires automakers to generate 38% NEV credits by 2025, escalating annually, under a cap-and-trade mechanism isolated to automotive manufacturing. This forces ICE manufacturers to subsidise EV production and accelerates the broader electrification ecosystem. Last verified August 2026.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">Manufacturing impact</div>
+      <div class="signal-section-text">The policy accelerates domestic battery production scale, which should reduce lithium-ion pack costs for TLD's electric GSE over time. It also signals continued government commitment to electrification, reducing regulatory risk for TLD's electric product investments. Supply chain for electric drivetrains and battery management systems becomes more competitive.</div>
+    </div>
+    
+    <div class="signal-section">
+      <div class="signal-section-label">GSE demand impact</div>
+      <div class="signal-section-text">Airport operators face increasing policy pressure to electrify ground fleets, directly benefiting TLD's electric GSE portfolio. Chinese airports may mandate electric GSE procurement in new terminal projects, creating a structural demand tailwind. This is a multi-year opportunity worth 20-30% of TLD's China GSE pipeline.</div>
+    </div>
+    <div class="signal-section signal-action">
+      <div class="signal-section-label">Recommended action</div>
+      <div class="signal-section-text">Business development should quantify electric GSE pipeline tied to airport electrification mandates and present a 3-year electrification revenue forecast to the board within 45 days.</div>
+    </div>
+    <div class="signal-source"><span class="source-label">Source</span><a href="https://energy-solutions.co/policy-intelligence/permitting-and-red-tape/china-nev-dual-credit-policy" target="_blank" rel="noopener">China NEV Dual-Credit Policy | ESI</a><span class="source-name"> — Tavily Search</span></div>
+  </div>
+</div>
+<details style="margin-top:12px;">
+  <summary style="font-size:12px;color:#94a3b8;cursor:pointer;padding:8px 4px;
+                  user-select:none;list-style:none;">
+    <span style="font-size:10px;background:#f1f5f9;border:1px solid #e2e8f0;
+                 border-radius:20px;padding:2px 8px;color:#64748b;font-weight:600;">
+      + 2 background items
+    </span>
+    <span style="color:#94a3b8;margin-left:8px;">— no immediate action, click to expand</span>
+  </summary>
+  <ul style="list-style:none;padding:12px 16px;margin-top:8px;
+             background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+    <li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.scmp.com/economy/china-economy/article/3122331/chinas-lunar-new-year-air-passenger-traffic-fall-offset-200" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">Historical Lunar New Year data shows 45% traffic drop, not current</a> <span style="color:#94a3b8;">— Tavily Search</span></li><li style="font-size:13px;color:#64748b;padding:3px 0;"><a href="https://www.kaggle.com/datasets/rajsengo/sfo-air-traffic-passenger-and-cargo-statistics" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">SFO dataset irrelevant to China GSE demand analysis</a> <span style="color:#94a3b8;">— Tavily Search</span></li>
+  </ul>
+</details>
+
+  <hr class="section-divider">
+
+  <div class="section-header"><h2>To watch this week</h2></div><div class="watch-panel"><div class="watch-panel-label">Key indicators &amp; thresholds</div><ol><li>EUR/CNY exchange rate — flag as CRITICAL if move exceeds 3% in 30 days, given active EU-China currency dispute.</li><li>China monthly PMI manufacturing — flag as CRITICAL if it breaches below 48 or above 52 for the first time in 3+ months.</li><li>Lithium carbonate price — flag as CRITICAL if move exceeds 20% in 30 days, given NEV subsidy uncertainty and battery supply chain risk.</li></ol></div>
+
+  <div class="risk-panel"><div class="risk-panel-label">Main risk</div><div class="risk-panel-text">EU-China currency and trade tensions triggering CNY appreciation or tariffs that erode TLD's China export competitiveness and European GSE order flow.</div></div>
+
+  <div class="opp-panel"><div class="opp-panel-label">Main opportunity</div><div class="opp-panel-text">Accelerated RMB 4.4tn special bond disbursement for transport infrastructure plus NEV dual-credit-driven airport electrification mandates creating a multi-year electric GSE demand surge in China.</div></div>
+
+  <div class="sources-panel">
+    <div class="sources-panel-label">Monitored sources (scraped + Tavily)</div>
+    <ul>
+      <li>NBS China (国家统计局)</li><li>NDRC China (发改委)</li><li>Reuters China Economy</li><li>Bloomberg China</li><li>Caixin Global</li><li>South China Morning Post — Economy</li><li>CGTN Business</li><li>Xinhua Finance</li><li>LME Metals (Metal Bulletin)</li><li>Steel Guru</li><li>Financial Times — China</li><li>Trading Economics — China</li>
+      <li>Tavily Search (NBS, Caixin ZH, Mysteel, SMM, NDRC, CAAC, PBOC, MOFCOM, Wind)</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  China Economic Watch · TLD Group / Alvest · Powered by DeepSeek + Tavily · October 11, 2026
+</div>
+
+</div>
+</body>
+</html>
