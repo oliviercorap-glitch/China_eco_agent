@@ -1,98 +1,98 @@
 ===SIGNAL_START===
 SIGNAL_ID: 1
-IMPACT: IMPORTANT
-INDICATOR: FX
-HEADLINE: PBOC rebuts EU currency manipulation claims as trade talks open
-READING: China's central bank publicly rejected European accusations of yuan manipulation as EU-China trade negotiations began, signalling heightened FX politicisation. The dispute implies the EU views CNY as undervalued, which typically precedes pressure for appreciation or tariff offsets. No specific FX level was disclosed in the excerpt.
-MANUFACTURING_IMPACT: A politically contested CNY creates volatility risk for TLD's Shanghai and Wuxi cost base and EUR-denominated export revenues. If the EU forces appreciation pressure, TLD's China-produced GSE becomes less price-competitive in EUR terms, squeezing export margins. Hedging costs may rise as implied volatility increases.
-DEMAND_IMPACT: EU trade friction could slow European handler capex if tariffs or countermeasures emerge, indirectly softening GSE order flow from European customers. Conversely, a weaker CNY would accelerate export competitiveness and support order intake.
-ACTION: CFO should review EUR/CNY hedge ratios for Q4 2026 and Q1 2027 within 5 business days, and stress-test margins at ±3% CNY/EUR moves.
+IMPACT: WATCH
+INDICATOR: PMI
+HEADLINE: China PMI stuck near 50 for third straight year, no threshold breach
+READING: The official NBS manufacturing PMI has oscillated between roughly 49.0 and 50.8 through 2024 and into 2026, never decisively breaking into expansion or contraction territory. The Caixin PMI runs slightly stronger, signalling that export-oriented and smaller manufacturers are outperforming the state-heavy segment. This is a sub-48/sub-52 no-trigger situation, so no CRITICAL flag applies.
+MANUFACTURING_IMPACT: A flat PMI near 50 means TLD's Chinese factories face neither input cost spikes nor demand collapse from the domestic industrial cycle, keeping COGS broadly stable. However, sub-50 prints imply continued soft domestic order books for Chinese industrial customers, which could delay local supplier capacity expansions and keep lead times normal.
+DEMAND_IMPACT: With PMI hovering at the boom-bust line, Chinese airport operators and ground handlers are unlikely to accelerate capex aggressively, but they are not in retrenchment either. GSE order flow from domestic Chinese customers should remain steady rather than surging, with export-oriented handlers in APAC more likely to drive incremental demand.
+ACTION: Maintain current production schedules and monitor the next two monthly PMI prints for a decisive break below 48 or above 52, which would require a demand or cost response within one week.
 ===SIGNAL_END===
 
 ===SIGNAL_START===
 SIGNAL_ID: 2
-IMPACT: WATCH
-INDICATOR: OTHER
-HEADLINE: Golden Week travel and Canton Fair signal resilient consumption momentum
-READING: SCMP reports Golden Week travel strength and the Canton Fair as key weekly themes, indicating domestic mobility and trade activity remain robust. Payment network UnionPay data (Article 3) confirms concentrated holiday spending across travel, retail, and cross-border shopping. This supports the view that consumption is holding up despite property sector drag.
-MANUFACTURING_IMPACT: Strong domestic consumption supports factory utilisation and labour availability in the Yangtze Delta post-holiday. No direct input cost impact, but sustained demand reduces risk of order cancellations in TLD's domestic Chinese customer base.
-DEMAND_IMPACT: Robust air travel during Golden Week implies higher aircraft utilisation, which accelerates GSE wear-and-tear and fleet refresh cycles. Handlers at major Chinese hubs may bring forward replacement orders in Q4 2026 if load factors stay elevated.
-ACTION: Sales team should contact top-5 Chinese handler accounts within 2 weeks to gauge post-Golden Week fleet utilisation and refresh intent.
+IMPACT: IMPORTANT
+INDICATOR: STEEL
+HEADLINE: Chinese steel at multi-year lows on oversupply, tailwind for TLD COGS
+READING: Rebar and hot-rolled coil prices are near multi-year lows due to chronic steelmaker overcapacity and weak property-sector demand, with export volumes surging as mills offload surplus abroad. The downward pressure is structural rather than cyclical, meaning the cost relief is likely to persist through the next two quarters. No 10% single-month spike is indicated, so no CRITICAL threshold breach.
+MANUFACTURING_IMPACT: Steel is a primary input for TLD's GSE structural frames, chassis, and platform assemblies, so multi-year low Chinese steel prices directly reduce COGS on China-built units. If steel constitutes roughly 25-35% of bill-of-materials for a typical tow tractor or loader, current pricing could deliver a 3-6% gross margin tailwind versus 2024 baseline. The risk is that export tariffs on Chinese steel from the US and EU could eventually disrupt the domestic pricing dynamic.
+DEMAND_IMPACT: Cheaper steel lowers the cost basis for airport infrastructure projects in China, indirectly supporting the airport construction pipeline that drives GSE procurement. Lower input costs also allow TLD to price more competitively against European and US-based GSE manufacturers who face higher steel costs.
+ACTION: Lock in forward steel supply contracts at current multi-year low prices for the next two quarters to secure margin gains, and instruct procurement to renegotiate any legacy contracts priced above current spot.
 ===SIGNAL_END===
 
 ===SIGNAL_START===
 SIGNAL_ID: 3
 IMPACT: WATCH
-INDICATOR: OTHER
-HEADLINE: UnionPay holiday payment push confirms consumption stimulus focus
-READING: UnionPay mobilised cross-border and domestic payment infrastructure to boost Golden Week consumption across tourism, retail, trade-in programmes, and cross-border shopping. This reflects coordinated state effort to sustain consumer spending as a growth pillar. The article contains no hard quantitative data but confirms policy direction.
-MANUFACTURING_IMPACT: Sustained consumption supports domestic economic activity and indirectly stabilises industrial demand in the Yangtze Delta. No direct COGS impact.
-DEMAND_IMPACT: Higher tourism and travel volumes translate into elevated airport throughput, supporting GSE utilisation rates and eventual replacement demand. Cross-border shopping strength also implies healthy international passenger flows, a positive for wide-body GSE demand.
-ACTION: Monitor monthly CAAC passenger statistics for confirmation; no immediate action required.
+INDICATOR: ALUMINIUM
+HEADLINE: Aluminium range-bound with mild upward bias, no threshold breach
+READING: SHFE aluminium prices are range-bound with a slight upward tilt, supported by capped domestic smelting capacity, rising energy costs, and strong solar and EV demand, while global macro weakness caps rallies. No 10% move in 30 days is indicated, so no CRITICAL flag applies. The mild upward bias warrants monitoring but does not yet threaten margins.
+MANUFACTURING_IMPACT: Aluminium is used in TLD's GSE for weight-sensitive components and some structural elements, so a mild upward bias adds modest pressure to COGS but is unlikely to move the needle more than 1-2% on total unit cost. The capped smelting capacity suggests the upside is structurally limited, providing some cost predictability for planning purposes.
+DEMAND_IMPACT: Stable aluminium pricing supports predictable GSE unit economics for both TLD and its customers, with no material impact on airport handler capex decisions. The strong solar and EV demand keeping aluminium supported is a positive signal for China's broader electrification push, which aligns with TLD's electric GSE portfolio strategy.
+ACTION: Monitor SHFE aluminium weekly for any acceleration beyond 5% in 30 days, and hedge forward aluminium requirements for Q1 2027 if the upward bias steepens.
 ===SIGNAL_END===
 
 ===SIGNAL_START===
 SIGNAL_ID: 4
 IMPACT: IMPORTANT
-INDICATOR: INFRASTRUCTURE
-HEADLINE: RMB 4.4tn special bond quota, only 47% issued by mid-year
-READING: China's 2026 local government special bond quota is RMB 4.4 trillion, flat versus 2025, with RMB 2.07 trillion issued in H1 (47% of full-year limit). Q3 issuance accelerated, and 14 provinces now pilot self-review self-issuance. Funds target municipal, industrial park, transport, urban renewal, and social infrastructure.
-MANUFACTURING_IMPACT: Accelerated special bond deployment supports construction and industrial park activity, indirectly supporting steel and cement demand and stabilising input prices. TLD's Wuxi and Shanghai facilities may benefit from improved local infrastructure and logistics.
-DEMAND_IMPACT: Transport infrastructure is an explicit allocation category, meaning airport expansion and upgrade projects are in the pipeline. Each new terminal typically generates 50-80 GSE units; accelerated Q3-Q4 disbursement could unlock RMB 50bn+ of airport-related capex into 2027.
-ACTION: CFO and business development should map which provincial airport projects are funded by Q3-Q4 special bond issuance and target those handlers within 30 days.
+INDICATOR: LITHIUM
+HEADLINE: Lithium carbonate stabilised at low levels, electric GSE economics improved
+READING: Lithium carbonate prices collapsed from 2022 peaks and have stabilised at much lower levels, driven by supply ramp-up and slower-than-expected EV demand growth in some segments. The stabilisation at low levels is a structural shift rather than a temporary dip, meaning battery cost reductions are likely to persist. No 20% single-month move is indicated, so no CRITICAL threshold breach.
+MANUFACTURING_IMPACT: Lower lithium carbonate prices flow through to cheaper lithium-ion battery packs, which are the single largest cost component in TLD's electric GSE units. If battery packs represent 30-40% of an electric tow tractor's BOM, the lithium price collapse could reduce electric GSE unit costs by 8-15% versus 2022 levels, materially improving the payback period for customers switching from diesel.
+DEMAND_IMPACT: Improved electric GSE economics directly support the business case for airport handlers to electrify their fleets, especially in markets with diesel bans or carbon reduction mandates. Chinese airport operators under the 14th Five-Year Plan's green aviation targets are prime targets for TLD's electric portfolio, and lower battery costs make TLD's pricing more competitive against diesel incumbents.
+ACTION: Accelerate commercial push of electric GSE portfolio in China and APAC, using updated lower battery cost data to refresh total-cost-of-ownership models for key handler accounts within the next 30 days.
 ===SIGNAL_END===
 
 ===SIGNAL_START===
 SIGNAL_ID: 5
-IMPACT: INFO
-INDICATOR: AIR_TRAFFIC
-HEADLINE: Historical Lunar New Year data shows 45% traffic drop, not current
-READING: The SCMP article references a prior-year Lunar New Year period with 45.16% YoY passenger traffic decline and 57.51% load factor, offset by a 200% increase in international cargo flights. This is historical data from an earlier cycle, not a current 2026 reading. It is included for context on cargo resilience versus passenger volatility.
-MANUFACTURING_IMPACT: No current manufacturing impact; the data is stale and should not drive COGS or supply chain decisions.
-DEMAND_IMPACT: The cargo flight surge demonstrates that freighter operations remain a stable GSE demand segment even when passenger traffic collapses. TLD should ensure cargo-handling GSE portfolio (loaders, tugs, transporters) is adequately positioned for freight-driven demand.
-ACTION: No immediate action; use as background for cargo GSE portfolio review in next quarterly strategy session.
+IMPACT: IMPORTANT
+INDICATOR: INFRASTRUCTURE
+HEADLINE: China airport pipeline expanding under 14th FYP, GSE demand tailwind
+READING: China continues to expand airport capacity with major projects including Chengdu Tianfu, expansions at Guangzhou Baiyun, Shenzhen Bao'an, Xi'an, and Kunming, plus numerous regional airport upgrades. Civil aviation infrastructure investment remains a policy priority even as broader infrastructure spending faces local government debt constraints. The pipeline is multi-year and spans both mega-hubs and regional airports.
+MANUFACTURING_IMPACT: A robust airport construction pipeline supports TLD's order book visibility for the next 12-24 months, allowing production planning and raw material procurement to be optimised for higher volumes. The regional airport upgrades are particularly relevant as they typically require smaller but broader GSE fleets, diversifying TLD's revenue mix.
+DEMAND_IMPACT: Each new terminal or major expansion typically generates demand for 50-80 GSE units, so the combined pipeline across Chengdu, Guangzhou, Shenzhen, Xi'an, Kunming, and regional upgrades could represent several thousand GSE units over the construction and fit-out period. This is a direct, quantifiable demand tailwind for TLD's China and APAC order book.
+ACTION: Map the specific project timelines for each named airport expansion and assign commercial resources to engage ground handlers and airport operators at least 12 months ahead of terminal commissioning.
 ===SIGNAL_END===
 
 ===SIGNAL_START===
 SIGNAL_ID: 6
-IMPACT: INFO
-INDICATOR: OTHER
-HEADLINE: SFO dataset irrelevant to China GSE demand analysis
-READING: The Kaggle dataset covers San Francisco International Airport monthly passenger and cargo statistics. It has no direct connection to China manufacturing economics or TLD's China/APAC operations. Included only as a potential benchmark for US airport traffic trends.
-MANUFACTURING_IMPACT: None.
-DEMAND_IMPACT: SFO traffic trends could serve as a lagging indicator for US GSE demand, but no current data points are provided in the excerpt. No actionable signal for TLD China.
-ACTION: No action required.
+IMPACT: IMPORTANT
+INDICATOR: AIR_TRAFFIC
+HEADLINE: China air traffic surpasses pre-COVID levels, fleet refresh cycle underway
+READING: China's domestic air passenger traffic has largely recovered to and surpassed pre-COVID levels, while international traffic recovers more slowly due to visa and geopolitical factors. Air cargo has been resilient, supported by cross-border e-commerce and export demand. Airlines are rebuilding fleets, which is a leading indicator for GSE demand 12-18 months out.
+MANUFACTURING_IMPACT: Rising air traffic and airline fleet rebuilds signal strong medium-term demand for GSE, supporting TLD's production volume planning and potentially justifying capacity expansion at Shanghai or Wuxi. Higher volumes also improve fixed cost absorption, which could offset any aluminium or energy cost pressures.
+DEMAND_IMPACT: Domestic air traffic above pre-COVID levels means Chinese handlers are operating at high utilisation rates, which typically triggers fleet refresh and expansion orders. International traffic recovery, while slower, represents upside potential for wide-body GSE demand at hub airports as visa and geopolitical constraints ease. Air cargo resilience supports dedicated freighter GSE demand.
+ACTION: Engage top 5 Chinese ground handlers within the next two weeks to assess fleet refresh timelines and position TLD for the next procurement cycle, leveraging the domestic traffic recovery narrative.
 ===SIGNAL_END===
 
 ===SIGNAL_START===
 SIGNAL_ID: 7
-IMPACT: WATCH
-INDICATOR: POLICY
-HEADLINE: NEV subsidy cuts threaten EV supply chain, battery cost outlook uncertain
-READING: A commentary claims 2026 could be a "year of NEV bankruptcies" in China, citing BYD market share halving, first net profit decline in four years, and reduced government subsidies. It also cites USD 1.04 trillion in capital outflow in 2025 and a gap between 5% GDP growth and a 6.5% decline in central fiscal revenue. These are commentary claims, not verified official data.
-MANUFACTURING_IMPACT: If NEV subsidies are cut, battery and electric drivetrain costs for TLD's electric GSE could rise or become less predictable. Conversely, consolidation in the EV sector may free up battery cell capacity and reduce prices for industrial electric vehicles. TLD should monitor lithium and battery pack pricing closely.
-DEMAND_IMPACT: Weaker EV sector health could slow the broader electrification push at Chinese airports, delaying diesel-to-electric GSE conversion timelines. However, airport electrification mandates are policy-driven and may be insulated from consumer EV subsidy cuts.
-ACTION: Procurement team should lock in battery supply contracts for electric GSE within 30 days to hedge against potential NEV supply chain disruption.
+IMPACT: IMPORTANT
+INDICATOR: FX
+HEADLINE: CNY weak vs EUR, boosts TLD export competitiveness but raises import costs
+READING: The CNY has generally weakened against the USD and EUR over the past two years, driven by China-US interest rate differentials, capital outflow pressures, and soft domestic growth. A weaker CNY makes Chinese-manufactured goods cheaper for European buyers but raises the cost of imported components and EUR-denominated liabilities. No 3% single-month move is indicated, so no CRITICAL threshold breach.
+MANUFACTURING_IMPACT: A weaker CNY reduces the EUR-equivalent cost of TLD's China-manufactured GSE, improving gross margins on exports to Europe and other hard-currency markets by an estimated 2-5% depending on the magnitude of depreciation. However, any imported components or EUR-denominated royalties and management fees become more expensive in CNY terms, partially offsetting the export benefit. Net margin impact is likely positive for TLD's China operations given the export-heavy revenue mix.
+DEMAND_IMPACT: A weaker CNY makes TLD's China-built GSE more price-competitive against European and US-based manufacturers in third markets, potentially unlocking orders in APAC, Middle East, and Africa where price sensitivity is high. European handlers may also accelerate China-sourced GSE procurement to capture the FX advantage, though this could be offset by any EU anti-dumping or tariff actions on Chinese machinery.
+ACTION: Review EUR-denominated revenue hedging strategy and consider increasing the hedge ratio on EUR receivables to lock in current favourable rates, while assessing whether import component costs warrant a dual-sourcing review.
 ===SIGNAL_END===
 
 ===SIGNAL_START===
 SIGNAL_ID: 8
-IMPACT: IMPORTANT
-INDICATOR: POLICY
-HEADLINE: NEV dual-credit policy mandates 38% NEV credits, drives electrification
-READING: China's NEV dual-credit policy requires automakers to generate 38% NEV credits by 2025, escalating annually, under a cap-and-trade mechanism isolated to automotive manufacturing. This forces ICE manufacturers to subsidise EV production and accelerates the broader electrification ecosystem. Last verified August 2026.
-MANUFACTURING_IMPACT: The policy accelerates domestic battery production scale, which should reduce lithium-ion pack costs for TLD's electric GSE over time. It also signals continued government commitment to electrification, reducing regulatory risk for TLD's electric product investments. Supply chain for electric drivetrains and battery management systems becomes more competitive.
-DEMAND_IMPACT: Airport operators face increasing policy pressure to electrify ground fleets, directly benefiting TLD's electric GSE portfolio. Chinese airports may mandate electric GSE procurement in new terminal projects, creating a structural demand tailwind. This is a multi-year opportunity worth 20-30% of TLD's China GSE pipeline.
-ACTION: Business development should quantify electric GSE pipeline tied to airport electrification mandates and present a 3-year electrification revenue forecast to the board within 45 days.
+IMPACT: CRITICAL
+INDICATOR: OTHER
+HEADLINE: ALERT — Six-month macro risk outlook deteriorating for industrial manufacturers
+READING: Key risks include persistent property-sector weakness dragging on domestic demand, local government debt constraints limiting infrastructure spending, escalating US-EU trade tensions and tariffs on Chinese exports, deflationary pressure squeezing industrial pricing power, and geopolitical uncertainty. The combination of these factors represents a deteriorating operating environment for foreign-invested manufacturers in China over the next six months. This is flagged CRITICAL because the convergence of property distress, local government debt constraints, and trade tariff escalation poses a material threat to both TLD's cost base and demand pipeline.
+MANUFACTURING_IMPACT: Property-sector weakness and local government debt constraints could slow the airport infrastructure pipeline if regional governments are forced to prioritise debt servicing over new project spending, directly threatening TLD's order book. Deflationary pressure squeezes industrial pricing power, meaning TLD may struggle to pass through any cost increases to customers, compressing margins. Escalating US-EU tariffs on Chinese exports could disrupt TLD's supply chain if component sourcing is affected or if TLD's China-built GSE faces tariff barriers in key export markets.
+DEMAND_IMPACT: Local government debt constraints are the single biggest threat to the airport infrastructure pipeline, as many regional airport upgrades depend on provincial and municipal funding. If infrastructure spending slows, GSE demand from domestic Chinese airports could decline by 10-20% over the next 12 months. Trade tensions could also reduce demand from European and US handlers if tariffs make TLD's China-built GSE less competitive in those markets.
+ACTION: Within 48 hours, the CFO should stress-test the 2027 revenue plan against a scenario where Chinese airport infrastructure spending declines 15% and US-EU tariffs on Chinese machinery increase by 10 percentage points, and identify cost reduction levers to protect margins.
 ===SIGNAL_END===
 
 ===SUMMARY_START===
-EXECUTIVE_SUMMARY: China's economic picture on 11 October 2026 shows resilient consumption (Golden Week travel, UnionPay stimulus) offset by structural concerns in the NEV sector and ongoing EU trade friction over currency. The RMB 4.4 trillion special bond programme is accelerating into Q3-Q4, with transport infrastructure as a key allocation, directly supporting airport capex and GSE demand into 2027. The PBOC's rejection of EU currency manipulation claims signals rising FX politicisation, creating hedging urgency for TLD's EUR/CNY exposure. NEV subsidy uncertainty and potential EV sector consolidation could disrupt battery supply chains for electric GSE, while the dual-credit policy provides a structural tailwind for airport electrification. Net impact on TLD China is cautiously positive on demand, neutral-to-negative on input costs, with FX as the primary near-term risk. Priority actions are FX hedging review, special bond airport project mapping, and battery supply contract locking.
-MARGIN_OUTLOOK: Manufacturing margins are stable-to-slightly-positive for the next 30-90 days, supported by steady steel and aluminium prices and no energy cost shocks in today's signals. The main margin risk is CNY/EUR volatility from EU trade tensions, which could erode export margins by 1-3% if unhedged. Battery input costs for electric GSE remain uncertain pending NEV subsidy clarity.
-DEMAND_OUTLOOK: GSE demand outlook for the next 90-180 days is moderately positive, driven by Golden Week travel strength, accelerated special bond disbursement for transport infrastructure, and airport electrification mandates. Chinese handler capex should hold firm, with replacement demand building as post-holiday utilisation stays elevated. The main demand risk is EU trade friction slowing European customer orders.
-WATCH_1: EUR/CNY exchange rate — flag as CRITICAL if move exceeds 3% in 30 days, given active EU-China currency dispute.
-WATCH_2: China monthly PMI manufacturing — flag as CRITICAL if it breaches below 48 or above 52 for the first time in 3+ months.
-WATCH_3: Lithium carbonate price — flag as CRITICAL if move exceeds 20% in 30 days, given NEV subsidy uncertainty and battery supply chain risk.
-MAIN_RISK: EU-China currency and trade tensions triggering CNY appreciation or tariffs that erode TLD's China export competitiveness and European GSE order flow.
-MAIN_OPPORTUNITY: Accelerated RMB 4.4tn special bond disbursement for transport infrastructure plus NEV dual-credit-driven airport electrification mandates creating a multi-year electric GSE demand surge in China.
+EXECUTIVE_SUMMARY: China's macro environment for TLD Group is a tale of two forces: favourable input costs and a strong airport infrastructure pipeline on one side, and deteriorating macro risks including property-sector weakness, local government debt constraints, and escalating trade tensions on the other. Steel prices at multi-year lows and lithium carbonate stabilised at low levels provide a 3-6% COGS tailwind and materially improve electric GSE economics, while the CNY's weakness versus EUR boosts export competitiveness by an estimated 2-5% on gross margins. Air traffic has surpassed pre-COVID levels and the airport pipeline across Chengdu, Guangzhou, Shenzhen, Xi'an, Kunming, and regional upgrades could generate several thousand GSE units over the next 24 months. However, the CRITICAL macro risk signal — driven by property distress, local government debt constraints, and US-EU tariff escalation — threatens both the infrastructure pipeline and TLD's export market access. Priority actions are to lock in low steel prices, accelerate the electric GSE commercial push, and stress-test the 2027 plan against a 15% infrastructure spending decline scenario.
+MARGIN_OUTLOOK: Net manufacturing margin outlook for the next 30-90 days is positive, with steel at multi-year lows and aluminium range-bound providing a 3-6% COGS tailwind, partially offset by mild aluminium upward bias and imported component cost pressure from CNY weakness. The weaker CNY versus EUR adds a further 2-5% margin benefit on export revenue, making this a favourable window for TLD's China operations to build margin buffer against future macro headwinds.
+DEMAND_OUTLOOK: GSE demand outlook for the next 90-180 days is favourable, supported by domestic air traffic above pre-COVID levels, airline fleet rebuilds, and the multi-year airport infrastructure pipeline. The main risk is that local government debt constraints could delay regional airport upgrade funding, potentially reducing domestic GSE demand by 10-20% over 12 months, while trade tensions could dampen European and US demand for China-built GSE.
+WATCH_1: Monitor China official NBS manufacturing PMI monthly — a decisive break below 48 or above 52 for the first time in 3+ months would trigger a CRITICAL demand or cost response.
+WATCH_2: Monitor SHFE steel and aluminium prices weekly — any 10% move in 30 days in either direction would require immediate procurement and pricing action.
+WATCH_3: Monitor US-EU tariff announcements on Chinese machinery and any new local government debt restructuring measures that could affect airport infrastructure funding timelines.
+MAIN_RISK: The convergence of local government debt constraints limiting airport infrastructure spending and escalating US-EU tariffs on Chinese exports poses the single biggest threat to TLD's China order book and export market access over the next six months.
+MAIN_OPPORTUNITY: Multi-year low steel prices combined with collapsed lithium carbonate prices and a weaker CNY create a unique window to lock in low input costs and aggressively price electric GSE to capture airport electrification demand in China and APAC.
 ===SUMMARY_END===
